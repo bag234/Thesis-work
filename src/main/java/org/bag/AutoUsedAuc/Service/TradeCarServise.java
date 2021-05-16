@@ -8,6 +8,7 @@ import org.bag.AutoUsedAuc.Object.Car.Car;
 import org.bag.AutoUsedAuc.Object.Trade.Trade;
 import org.bag.AutoUsedAuc.Object.Trade.TradeType;
 import org.bag.AutoUsedAuc.Object.User.User;
+import org.bag.AutoUsedAuc.Repository.IBetRep;
 import org.bag.AutoUsedAuc.Repository.ICarRep;
 import org.bag.AutoUsedAuc.Repository.ITradeRep;
 import org.bag.AutoUsedAuc.Repository.IUserRep;
@@ -22,6 +23,13 @@ public class TradeCarServise {
 	ITradeRep tradeRep;
 	
 	ICarRep carRep;
+	
+	IBetRep betRep;
+	
+	@Autowired
+	public void setBetRep(IBetRep betRep) {
+		this.betRep = betRep;
+	}
 	
 	@Autowired
 	public void setUserRep(IUserRep userRep) {
@@ -95,6 +103,7 @@ public class TradeCarServise {
 		if(car.getTrade().getWinBet().getCount_Bet() + car.getTrade().getStep() > bet.getCount_Bet())
 			return false;
 		car.getTrade().setWinBet(bet);
+		betRep.save(bet);
 		carRep.save(car);
 		return true; 
 	}

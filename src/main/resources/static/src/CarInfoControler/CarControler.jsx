@@ -10,6 +10,7 @@ import CardColumns from 'react-bootstrap/CardColumns'
 import Carousel from 'react-bootstrap/Carousel'
 import Badge from 'react-bootstrap/Badge'
 import BetGrafComp from "./BetGrafComp.jsx";
+import TypicalGrafControler from "./TypicalGrafContoler.jsx";
 
 class CarControler extends React.Component{
 
@@ -76,6 +77,7 @@ class CarControler extends React.Component{
             </Carousel>
             <Card.Body>
                 {this.state.carObj.trade.type == "OPEN" ? <BetGrafComp id={this.state.carObj.id} /> : ""}
+                {this.state.carObj.trade.type == "TYPICAL" ? <TypicalGrafControler id={this.state.carObj.id} /> : ""}
             </Card.Body>
         </div>);
         return <h2>LODING</h2>

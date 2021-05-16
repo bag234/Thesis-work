@@ -29,7 +29,6 @@ public class ImageApiControler {
 	@GetMapping(path = "/{token}", produces = {"image/png", "image/jpg"})
 	public @ResponseBody byte[] getImage(@PathVariable(name="token") String token) throws IOException {
 		InputStream in = new FileInputStream(imageServ.getFile(token));
-		System.out.println(in);
 		return in.readAllBytes();
 	}
 	@PostMapping()

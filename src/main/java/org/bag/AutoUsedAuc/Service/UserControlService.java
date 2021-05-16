@@ -48,7 +48,6 @@ public class UserControlService {
 		}
 	}
 	
-	
 	@Autowired
 	public void setUserRep(IUserRep userRep) {
 		this.userRep = userRep;
@@ -62,9 +61,16 @@ public class UserControlService {
 	private boolean validSrting(String str) {
 		return str.length() > 4;
 	}
+	
+	
 	public UserControlService() {
 		mailRep = new HashMap<String, User>();
 	}
+	
+	public User getUser(String login) {
+		return userRep.findByLogin(login).orElse(null);
+	}
+	
 	public boolean addNewUser(User user) {
 		user.setType(TypeUser.NOT_IDENT);
 		if (userRep.findByLogin(user.getLogin()).isEmpty() 
@@ -127,6 +133,37 @@ public class UserControlService {
 		if (user == null)
 			return false;
 		user.setType(TypeUser.IDENT);
+		userRep.save(user);
+		return true;
+	}
+	
+	public boolean updatePassword(String login, String newPassword) throws Exception {
+		if(login == null ||  !validSrting(newPassword))
+			return false;
+		User user = userRep.findByLogin(login).orElseThrow(() -> new Exception("[CRITICAL] User not find in db") );
+		user.setPassword(newPassword);
+		mailServise.mailChangePasswordSend(user.geteMail());
+		userRep.save(user);
+		return true;
+	}
+	
+	public boolean updateeMail(String login, String neweMail) throws Exception {
+		if(login == null ||  !validSrting(neweMail))
+			return false;
+		User user = userRep.findByLogin(login).orElseThrow(() -> new Exception("[CRITICAL] User not find in db") );
+		mailServise.mailChangeeMailSend(user.geteMail(), neweMail);
+		user.seteMail(neweMail);
+		user.setType(TypeUser.NOT_IDENT);
+		userRep.save(user);
+		return true;
+	}
+	
+	public boolean updateName(String login, String newName) throws Exception {
+		if(login == null)
+			return false;
+		User user = userRep.findByLogin(login).orElseThrow(() -> new Exception("[CRITICAL] User not find in db") );
+		mailServise.mailChangeNameSend(user.geteMail(), newName);
+		user.setName(newName);
 		userRep.save(user);
 		return true;
 	}

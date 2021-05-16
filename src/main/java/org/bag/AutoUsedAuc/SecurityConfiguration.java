@@ -33,6 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.formLogin()
 			.defaultSuccessUrl("/", true)
 			.permitAll()
+			.loginPage("/login")
 			.and();
 		http.headers().frameOptions().disable(); // <- multiWindow 
 		

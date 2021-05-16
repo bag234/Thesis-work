@@ -5,10 +5,7 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form"
 import { Col, Row } from "react-bootstrap";
-import Card from 'react-bootstrap/Card'
-import CardColumns from 'react-bootstrap/CardColumns'
-import Carousel from 'react-bootstrap/Carousel'
-import Badge from 'react-bootstrap/Badge'
+
 
 class BetGrafComp extends React.Component{
 
@@ -16,7 +13,7 @@ class BetGrafComp extends React.Component{
         super(props)
         this.state ={
             trade: {},
-            newBet: 0,
+            newBet: 10,
             isonButton: true,
             isLogin: false
         };
@@ -52,7 +49,7 @@ class BetGrafComp extends React.Component{
     }
 
     onChangeBetCount(event){ 
-        this.setState({newBet: event.target.text});
+        this.setState({newBet: event.target.value});
     }
 
     onClickButton(){
@@ -75,16 +72,16 @@ class BetGrafComp extends React.Component{
     }
 
     render(){
-        // if(!this.state.isLogin)
-        //     return(<div>Пожалуйста авторизутесь</div>);
+        if(!this.state.isLogin)
+            return(<div>Пожалуйста авторизутесь</div>);
         return(
             <div id="bet-block">
-                <Col>
-                    <Form.Group controlId="TradeCar.Barnd">
+                    
+                    <Form.Group controlId="Car.Bet">
                         <Form.Label>Цена</Form.Label>
                         <Form.Control onChange={this.onChangeBetCount.bind(this)} value={this.state.newBet}/>
                     </Form.Group>
-                </Col>
+                 
                 <Col>
                     <Button disabled={!this.state.isonButton} onClick={this.onClickButton.bind(this)} variant="primary">Primary</Button>{' '}
                 </Col>

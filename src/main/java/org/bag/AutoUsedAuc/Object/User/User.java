@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 
@@ -22,7 +24,8 @@ public class User {
 	String name;
 	
 	String login;
-
+	
+	@JsonIgnore
 	String password;
 	
 	String eMail;

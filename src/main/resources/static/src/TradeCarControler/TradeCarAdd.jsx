@@ -196,6 +196,7 @@ class TradeCarAdd extends React.Component{
                 step:this.state.step,
                 type:this.state.tradeType
             },
+            description: "ALL_HUI",
             milage:this.state.milage,
             state: this.state.state,
             typeHeadLightCar:this.state.typesHeadLightCar,

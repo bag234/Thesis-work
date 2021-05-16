@@ -3,6 +3,12 @@ import Alert from 'react-bootstrap/Alert'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from "react-bootstrap/FormControl";
+import Form from "react-bootstrap/Form"
+import { Row, Col } from "react-bootstrap";
+import Card from 'react-bootstrap/Card'
+import CardColumns from 'react-bootstrap/CardColumns'
+import Carousel from 'react-bootstrap/Carousel'
+import Badge from 'react-bootstrap/Badge'
 
 class RegistrationControler extends React.Component{
 
@@ -42,6 +48,8 @@ class RegistrationControler extends React.Component{
                 }
             );
         }
+        else
+            this.setState({loginState: "SHORT"});
     }
 
     onChangeeMail(event){
@@ -70,63 +78,69 @@ class RegistrationControler extends React.Component{
         this.setState({isRiderct: true});
     }
 
+    decodeText(code){
+        //SHORT, BUSY, FREE
+        console.log(code);
+        if(code == "SHORT")
+            return "Логин слишком короткий";
+        if(code == "BUSY")
+            return "Логин занят другим пользователем";
+        if(code == "FREE")
+            return "Логин свободен";
+        return "пытаюсь разобрать?"
+    }
+
     render(){
         console.log("sss");
         return (
-            <div id="reg-controler">
-                <h1>HELLO</h1>
-                {this.state.isRiderct ? <Redirect to="/" /> : ""}
-                <InputGroup className="mb-3">
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">User name</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl
-                        value= {this.state.name}
-                        onChange = {this.onChangeName.bind(this)}
-                        placeholder="Username"
-                        aria-label="Username"
-                        aria-describedby="basic-addon1"
-                    />
-                </InputGroup>
-                {this.state.loginState != "FREE" ? <Alert key='1' variant="danger"> Login is busy </Alert> : ""}
-                <InputGroup className="mb-3">
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">Login</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl
-                        value= {this.state.login}
-                        onChange = {this.onChangeLogin.bind(this)}
-                        placeholder="login"
-                        aria-label="Login"
-                        aria-describedby="basic-addon1"
-                    />
-                </InputGroup>
-                <InputGroup className="mb-3">
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">EMail</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl
-                        value= {this.state.eMail}
+            <div id="reg-controler" class="">
+                 {this.state.isRiderct ? <Redirect to="/" /> : ""}
+                <Row>
+                    <Col>
+                    <Form.Group controlId="reg.name">
+                        <Form.Label>Имя</Form.Label>
+                        <Form.Control 
+                            placeholder="Как к вам будут обращаться?" 
+                            onChange={this.onChangeName.bind(this)}
+                            value = {this.state.login}
+                        />
+                    </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group controlId="reg.login">
+                            <Form.Label>Логин</Form.Label>
+                            <Form.Control type="login" placeholder="Введите логин" 
+                                onChange={this.onChangeLogin.bind(this)}
+                                value = {this.state.login}
+                            />
+                            <Form.Text className="text-muted" >
+                                {this.decodeText(this.state.loginState)}
+                            </Form.Text>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Form.Group controlId="reg.email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" placeholder="example@mail.com" 
                         onChange = {this.onChangeeMail.bind(this)}
-                        placeholder="example@mail.com"
-                        aria-label="Login"
-                        aria-describedby="basic-addon1"
+                        value = {this.state.eMail}
                     />
-                </InputGroup>
-                <InputGroup className="mb-3">
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">password</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl
-                        value= {this.state.password}
+                    <Form.Text className="text-muted" >
+                        Почта для уведомлений
+                    </Form.Text>
+                </Form.Group>
+                <Form.Group controlId="reg.password">
+                    <Form.Label>Пароль</Form.Label>
+                    <Form.Control type="password" placeholder="Password" 
                         onChange = {this.onChangePassword.bind(this)}
-                        placeholder="HIDE"
-                        aria-label="Login"
-                        aria-describedby="basic-addon1"
+                        value = {this.state.password}
                     />
-                </InputGroup>
+                    <Form.Text className="text-muted" >
+                        от 6 символов
+                    </Form.Text>
+                </Form.Group>
                 <Button variant="primary" onClick={this.onClickButtonReg.bind(this)} block>
-                    Registartion
+                    Зарегистрироваться 
                 </Button>
             </div>
         );

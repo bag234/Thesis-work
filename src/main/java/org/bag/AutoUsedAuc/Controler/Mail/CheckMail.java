@@ -44,6 +44,6 @@ public class CheckMail {
 	@GetMapping(path = "/{token}")
 	public String checkCheckMail(@PathVariable(name = "token") String token) {
 		userServ.makeeMailCheack(token);
-		return "riderect:/";
+		return "redirect:/";
 	}
 }
