@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardColumns'
 import CarCard from "./CarCard.jsx";
 
-class CarsControler extends React.Component{
+class CarsMyControler extends React.Component{
 
     constructor(props){
         super(props);
@@ -19,7 +19,7 @@ class CarsControler extends React.Component{
     }
 
     componentDidMount(){
-        fetch("/api/TradeCar").then(res => res.json())
+        fetch("/api/TradeCar/my").then(res => res.json())
             .then(
                 (res) => {
                     this.setState({cars: res});
@@ -30,9 +30,9 @@ class CarsControler extends React.Component{
 
     render(){
         return(
-            <div id="cars-controler">
+            <div id="carsmy-controler">
                 <CardColumns>
-                    {this.state.cars.map((elm) => <CarCard obj={elm} mode={false}/>)}
+                    {this.state.cars.map((elm) => <CarCard obj={elm} mode={true}/>)}
                 </CardColumns>
             </div>
         );
@@ -40,4 +40,4 @@ class CarsControler extends React.Component{
 
 }
 
-export default CarsControler;
+export default CarsMyControler;

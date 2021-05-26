@@ -21,6 +21,8 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	
+	
+
 	String name;
 	
 	String login;
@@ -32,6 +34,13 @@ public class User {
 	
 	@Enumerated(EnumType.STRING)
 	TypeUser type;
+	
+	public User(String name, String login, String password, String eMail) {
+		this.name = name;
+		this.login = login;
+		this.setPassword(password);
+		this.eMail = eMail;
+	}
 	
 	public User() {
 	}

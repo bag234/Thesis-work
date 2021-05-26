@@ -4,6 +4,7 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
+import org.bag.AutoUsedAuc.Object.Bet.Bet;
 import org.bag.AutoUsedAuc.Object.Car.Car;
 import org.bag.AutoUsedAuc.Object.Trade.Trade;
 import org.bag.AutoUsedAuc.Service.BetService;
@@ -27,6 +28,11 @@ public class CarTradeApiControler {
 	
 	BetService betService;
 	
+	/**
+	 * add cast to null(Principal) exception Handler
+	 * @param betService
+	 */
+	
 	@Autowired
 	public void setBetService(BetService betService) {
 		this.betService = betService;
@@ -40,6 +46,11 @@ public class CarTradeApiControler {
 	@GetMapping(produces = {"application/hal+json"})
 	public List<Car> getAllCar(){
 		return tradeCarServise.getAllCar();
+	}
+	
+	@GetMapping(path = "/my",produces = {"application/hal+json"})
+	public List<Car> getCarMy(Principal principal){
+		return tradeCarServise.getMyCar(principal.getName());
 	}
 	
 	@GetMapping(path = "/{id}",produces = {"application/hal+json"})
@@ -59,6 +70,18 @@ public class CarTradeApiControler {
 		return optCar.orElseThrow().getTrade();
 	}
 	
+	@GetMapping(path = "/{id}/bet")
+	public Bet getCarNwinBet(@PathVariable(name = "id") long id){
+		Optional<Car> optCar = tradeCarServise.getCarById(id);
+		return optCar.orElseThrow().getTrade().getWinBet();
+	}
+	
+	@GetMapping(path = "/{id}/myBet")
+	public boolean isMyCarBet(@PathVariable(name = "id") long id, Principal prin) {
+		Optional<Car> optCar = tradeCarServise.getCarById(id);
+		return optCar.orElseThrow().getTrade().getWinBet().getBetter().getLogin() == prin.getName();
+	}
+	
 	@GetMapping(path = "/{id}/contact")
 	public String getCarNContact(@PathVariable(name = "id") long id){
 		Optional<Car> optCar = tradeCarServise.getCarById(id);
@@ -67,9 +90,18 @@ public class CarTradeApiControler {
 	
 	@PostMapping
 	public Car addCar(Principal principal, @RequestBody Car car) {
-		System.out.println(principal);
 		if (tradeCarServise.addCar(car, principal.getName()))
 			return car;
+		throw new UsernameNotFoundException("User not login or DB error");
+	}
+	
+	@PostMapping(path = "/{id}")
+	public Car changeCar(Principal principal, @RequestBody Car car, @PathVariable long id) {
+		if (tradeCarServise.isMyCar(id, principal.getName())) {
+			if(tradeCarServise.updateTradeCar(car, id))
+				return car;
+		}
+			
 		throw new UsernameNotFoundException("User not login or DB error");
 	}
 

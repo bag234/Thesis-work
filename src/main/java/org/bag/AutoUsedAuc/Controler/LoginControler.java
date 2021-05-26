@@ -14,8 +14,6 @@ import org.slf4j.LoggerFactory;
 @Controller
 @RequestMapping(path = "/login")
 public class LoginControler {
-
-	static Logger log = LoggerFactory.getLogger(LoginControler.class); 
 	
 	@GetMapping()
 	public String getLoginPage() {

@@ -14,8 +14,11 @@ class BetGrafComp extends React.Component{
         this.state ={
             trade: {},
             newBet: 10,
-            isonButton: true,
-            isLogin: false
+            isonButton: false,
+            isLogin: false,
+            winBet: {},
+            isMyLastBet: false,
+            stateBet: "none" // small, ideal, many, none
         };
     }
 
@@ -23,7 +26,6 @@ class BetGrafComp extends React.Component{
         this.intervalup = setInterval(() => this.update(), 5000);
         fetch("/api/User/getLogin").then(res => res.text())
         .then((res) => {
-            alert((res != "null"));
             this.setState({isLogin:(res != "null")});
         }, 
         (err) => {
@@ -34,14 +36,32 @@ class BetGrafComp extends React.Component{
     }
 
     update(){
-        fetch("/api/TradeCar/" + this.props.id + "/trade" ).then(res => res.json())
-        .then((res) => {
-            this.setState({trade: res});
-        }, 
-        (err) => {
-            console.error(err);
+        if(this.state.isLogin){
+            fetch("/api/TradeCar/" + this.props.id + "/trade" ).then(res => res.json())
+            .then((res) => {
+                this.setState({trade: res});
+            }, 
+            (err) => {
+                console.error(err);
+            }
+            );
+            fetch("/api/TradeCar/" + this.props.id + "/bet" ).then(res => res.json())
+            .then((res) => {
+                this.setState({winBet: res});
+            }, 
+            (err) => {
+                console.error(err);
+            }
+            );
+            fetch("/api/TradeCar/" + this.props.id + "/myBet" ).then(res => res.text())
+            .then((res) => {
+                this.setState({isMyLastBet: res == "true"});
+            }, 
+            (err) => {
+                console.error(err);
+            }
+            );
         }
-        );
     }
 
     componentWillUnmount(){
@@ -49,12 +69,25 @@ class BetGrafComp extends React.Component{
     }
 
     onChangeBetCount(event){ 
-        this.setState({newBet: event.target.value});
+        let state = "none";
+        let isButt = false;
+        if ((this.state.winBet.count_Bet + this.state.trade.step) >= event.target.value)
+            state = "small";
+        if ((this.state.winBet.count_Bet + this.state.trade.step) < event.target.value){
+            state = "ideal";
+            isButt = true;
+        }
+        if ((this.state.winBet.count_Bet*1.5 + this.state.trade.step)  < event.target.value){
+            state = "many";
+            isButt = true;
+        }
+
+        this.setState({newBet: event.target.value, stateBet: state, isonButton: isButt});
     }
 
     onClickButton(){
         let foda = new FormData();
-        alert(this.state.newBet);
+       
         foda.append("newBet", this.state.newBet);
         fetch("/api/TradeCar/" + this.props.id + "/bet",{
             method:"POST",
@@ -71,20 +104,49 @@ class BetGrafComp extends React.Component{
         this.setState({newBet: 0});
     }
 
+    getDescText(){
+        if(this.state.isMyLastBet) {
+            return ("Ваша ставка последния на данный момент");
+        }
+        if(this.state.stateBet == "none") {
+            return ("");
+        }
+        if(this.state.stateBet == "small") {
+            return ("Слишком мало");
+        }
+        if(this.state.stateBet == "ideal") {
+            return ("Сумма подходит для ставки");
+        }
+        if(this.state.stateBet == "many") {
+            return ("Слишком велико (Дайте другим шанс)");
+        }
+    }
+
+    getDescColor(){
+        
+    }
+
     render(){
         if(!this.state.isLogin)
             return(<div>Пожалуйста авторизутесь</div>);
         return(
             <div id="bet-block">
-                    
-                    <Form.Group controlId="Car.Bet">
-                        <Form.Label>Цена</Form.Label>
-                        <Form.Control onChange={this.onChangeBetCount.bind(this)} value={this.state.newBet}/>
-                    </Form.Group>
-                 
-                <Col>
-                    <Button disabled={!this.state.isonButton} onClick={this.onClickButton.bind(this)} variant="primary">Primary</Button>{' '}
-                </Col>
+                <Row>
+                    <Col>
+                        <Form.Group controlId="Car.Bet">
+                            <Form.Label>Цена</Form.Label>
+                            <Form.Control onChange={this.onChangeBetCount.bind(this)} value={this.state.newBet}/>
+                            <Form.Text className="text-muted">
+                                 {this.getDescText()}
+                            </Form.Text>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Button disabled={!this.state.isonButton} onClick={this.onClickButton.bind(this)} variant="primary">
+                            Ставить?
+                        </Button>
+                    </Col>
+                </Row>
             </div>
         );
     }

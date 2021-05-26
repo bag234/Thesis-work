@@ -205,6 +205,9 @@ class UserPageControler extends React.Component {
                         {this.rusTypeDecode(this.state.type)}
                     </Col>
                 </Row>
+                <Button variant="primary" size="lg" block href={"/change"}>
+                    Мои лоты
+                </Button>
             </div>
         );
     }

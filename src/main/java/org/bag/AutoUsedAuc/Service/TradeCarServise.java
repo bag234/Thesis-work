@@ -1,5 +1,6 @@
 package org.bag.AutoUsedAuc.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,28 +66,50 @@ public class TradeCarServise {
 	}
 	
 	/**
-	 *  Update trade use id: type /api/trade/{id}/ - POST
+	 *  Update trade use id: type /api/TradeCar/{id}/ - POST
 	 * @param trade
 	 * @param id
 	 */
 	
-	public boolean updateTrade(Trade trade, long id) {
+	public boolean updateTradeCar(Car car, long id) {
 		if(!tradeRep.findById(id).isPresent())
 			return false;
-		trade.setId(id);
-		tradeRep.save(trade);
-		return true;
-	}
-	
-	public boolean updateCar(Car car, long id) {
-		Optional<Car> optCar = carRep.findById(id);
-		if(!optCar.isPresent())
-			return false;
 		car.setId(id);
-		car.setTrade(optCar.get().getTrade());
+		car.getTrade().setId(id);
+		tradeRep.save(car.getTrade());
 		carRep.save(car);
 		return true;
 	}
+	/**
+	 * Check car is user an car not empy 
+	 * @param id
+	 * @param login
+	 * @return
+	 */
+	public boolean isMyCar(long id, String login) {
+		try {
+			return tradeRep.findById(id).orElseThrow().getSeller().getName().equals(login);
+		}
+		catch (Exception e) {
+			return false;
+		}
+	}
+	
+	/**
+	 * 	trade id = car id 
+	 * 	In trade repository search of user => result convert to List<Car>  
+	 *  @param login - login user 
+	 */
+	public List<Car> getMyCar(String login){
+		List<Car> cars = new ArrayList<Car>();
+		List<Trade> trades = tradeRep.findAllBySeller(userRep.findByLogin(login).orElseThrow());
+		trades.forEach(t -> {
+			cars.add(carRep.findById(t.getId()).orElseThrow());
+		});
+		return cars;
+	}
+	
+
 	/**
 	 *  add time auto close trade
 	 * @param id

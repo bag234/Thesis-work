@@ -35,6 +35,24 @@ class CarCard extends React.Component {
     }
 
     render() { //props.obj <-car object
+        if(this.props.mode)
+        return (
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={"/api/Image/" + this.props.obj.imagesPath[0]} />
+                <Card.Body>
+                    <Card.Title>
+                        {this.props.obj.brand}, {this.props.obj.model}, {this.props.obj.gen} - {this.props.obj.year} года 
+                        <Badge variant={this.stageVarStateDecode(this.props.obj.state)}>{this.rusStateDecode(this.props.obj.state)}</Badge></Card.Title>
+                    <Card.Text>
+                        Тут возможно будет описание(нет)
+                    </Card.Text>
+                    <Button variant="primary" href={"/change/" + this.props.obj.id}>
+                        Изменить
+                    </Button>
+                    
+                </Card.Body>
+            </Card>
+        );
         return (
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={"/api/Image/" + this.props.obj.imagesPath[0]} />
