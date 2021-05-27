@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="org.bag.AutoUsedAuc.Service.Security.SecurityWebUserService" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Service/Security/SecurityWebUserService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="115" width="225" x="1544" y="1291"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="org.bag.AutoUsedAuc.Object.Car.Car" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Car/Car.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="889" width="278" x="2226" y="-171"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="3" language="java" name="org.bag.AutoUsedAuc.Object.Car.TypeDriveUnitCar" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Car/TypeDriveUnitCar.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="151" x="1353" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="4" language="java" name="org.bag.AutoUsedAuc.Controler.User.PersonalPageUser" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/User/PersonalPageUser.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="165" x="634" y="-171"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="org.bag.AutoUsedAuc.Service.TradeCarServise" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Service/TradeCarServise.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="277" width="194" x="986" y="1291"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="6" language="java" name="org.bag.AutoUsedAuc.Object.User.TypeUser" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/User/TypeUser.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="151" width="154" x="2800" y="2177"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="7" language="java" name="org.bag.AutoUsedAuc.Controler.Api.CarTrade.CarTradeApiControler" 
+    project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/Api/CarTrade/CarTradeApiControler.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="295" width="241" x="1072" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="org.bag.AutoUsedAuc.Controler.TradeCar.CarControler" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/TradeCar/CarControler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="232" x="528" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="9" language="java" name="org.bag.AutoUsedAuc.Object.Car.TypeMotorCar" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Car/TypeMotorCar.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="149" x="1848" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="10" language="java" name="org.bag.AutoUsedAuc.Controler.Mail.CheckMail" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/Mail/CheckMail.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="208" x="3201" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="org.bag.AutoUsedAuc.Controler.TradeCar.AddTradeCarContoler" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/TradeCar/AddTradeCarContoler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="232" x="800" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="12" language="java" name="org.bag.AutoUsedAuc.Object.Car.StateCar" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Car/StateCar.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="133" width="149" x="2037" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="13" language="java" name="org.bag.AutoUsedAuc.Object.Car.TypeMediaCar" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Car/TypeMediaCar.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="149" x="2226" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="14" language="java" name="org.bag.AutoUsedAuc.Object.Trade.TradeState" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Trade/TradeState.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="157" x="2840" y="1291"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="15" language="java" name="org.bag.AutoUsedAuc.Controler.Registration.RegUserControler" 
+    project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/Registration/RegUserControler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="208" x="3449" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="16" language="java" name="org.bag.AutoUsedAuc.Repository.ITradeRep" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Repository/ITradeRep.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="183" x="763" y="1716"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="17" language="java" name="org.bag.AutoUsedAuc.Repository.ICarRep" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Repository/ICarRep.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="61" width="149" x="986" y="1716"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="org.bag.AutoUsedAuc.Service.UserControlService" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Service/UserControlService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="385" width="218" x="3234" y="1291"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="19" language="java" name="org.bag.AutoUsedAuc.Repository.IUserRep" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Repository/IUserRep.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="194" x="1544" y="1716"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="20" language="java" name="org.bag.AutoUsedAuc.AutoUsedAucApplication" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/AutoUsedAucApplication.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="168" x="946" y="-171"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="org.bag.AutoUsedAuc.Service.Image.ImageService" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Service/Image/ImageService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="241" width="164" x="2997" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="22" language="java" name="org.bag.AutoUsedAuc.Object.Car.TypeBodyCar" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Car/TypeBodyCar.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="149" x="2415" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="23" language="java" name="org.bag.AutoUsedAuc.SecurityConfiguration" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/SecurityConfiguration.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="264" x="1544" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="org.bag.AutoUsedAuc.Controler.Api.Image.ImageApiControler" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/Api/Image/ImageApiControler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="187" x="2997" y="-171"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="org.bag.AutoUsedAuc.Object.User.User" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/User/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="421" width="178" x="2800" y="1716"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="26" language="java" name="org.bag.AutoUsedAuc.Object.Trade.TradeType" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Trade/TradeType.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="115" width="157" x="3037" y="1291"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="27" language="java" name="org.bag.AutoUsedAuc.Controler.Api.User.UserUtilControler" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/Api/User/UserUtilControler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="187" width="226" x="3697" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="org.bag.AutoUsedAuc.Object.Bet.Bet" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Bet/Bet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="241" width="153" x="2626" y="1291"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="29" language="java" name="org.bag.AutoUsedAuc.Repository.IBetRep" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Repository/IBetRep.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="185" x="1175" y="1716"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="30" language="java" name="org.bag.AutoUsedAuc.Service.BetService" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Service/BetService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="207" x="1297" y="1291"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="org.bag.AutoUsedAuc.Object.Trade.Trade" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Trade/Trade.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="493" width="157" x="2800" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="org.bag.AutoUsedAuc.Service.Mail.MailServise" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Service/Mail/MailServise.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="205" width="226" x="3234" y="1716"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="33" language="java" name="org.bag.AutoUsedAuc.Service.LoginStateAnswer" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Service/LoginStateAnswer.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="155" x="1262" y="-171"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="34" language="java" name="org.bag.AutoUsedAuc.Controler.LoginControler" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/LoginControler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="142" x="1565" y="-171"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="org.bag.AutoUsedAuc.Controler.Api.CarTrade.GerCarEnum" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Controler/Api/CarTrade/GerCarEnum.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="169" width="220" x="1856" y="-171"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="36" language="java" name="org.bag.AutoUsedAuc.Object.Car.TypeHeadLightCar" project="AutoUsedAuc" 
+    file="/AutoUsedAuc/src/main/java/org/bag/AutoUsedAuc/Object/Car/TypeHeadLightCar.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="156" x="2604" y="758"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <association id="37">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="38" name="userRep">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="41" name="userServ">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="44" name="userServ">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="47" name="trade">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="50" name="userRep">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="53" name="userServiseSec">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="54" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="56" name="state">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="59" name="typeBodyCar">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="60" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="62" name="type">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="63" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="65" name="typeHeadLightCar">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="66" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="68" name="mailServise">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="69" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="71" name="tradeRep">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="72" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="74" name="winBet">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="75" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="77" name="typeMediaCar">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="80" name="state">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="81" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="83" name="typeMotorCar">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="84" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="86" name="type">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="87" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="89" name="userRep">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="90" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="91">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="92" name="tradeCarServise">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="93" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="94">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="95" name="tradeCarServise">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="96" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="97">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="98" name="typeDriveUnitCar">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="99" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="100">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="101" name="betRep">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="102" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="104" name="betService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="105" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="106">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="107" name="imageServ">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="108" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="110" name="mailRep">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="111" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="112">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="113" name="userRep">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="114" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="115">    
+    <bendpoint x="2809" y="1291"/>    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="116" name="seller">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="117" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="119" name="tradeCarServise">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="120" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="122" name="carRep">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="123" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="124">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="125" name="better">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="126" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="128" name="userServ">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="129" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
