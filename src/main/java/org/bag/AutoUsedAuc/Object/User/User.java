@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -15,19 +16,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class User {
 
+	@Autowired
 	public static final PasswordEncoder PASS_ENC = new BCryptPasswordEncoder(); // so _ so
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	
-	
-
 	String name;
 	
 	String login;
 	
-	@JsonIgnore
+//	@JsonIgnore
 	String password;
 	
 	String eMail;
@@ -35,15 +35,15 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	TypeUser type;
 	
-	public User(String name, String login, String password, String eMail) {
-		this.name = name;
-		this.login = login;
-		this.setPassword(password);
-		this.eMail = eMail;
-	}
-	
-	public User() {
-	}
+//	public User(String name, String login, String password, String eMail) {
+//		this.name = name;
+//		this.login = login;
+//		this.setPassword(password);
+//		this.eMail = eMail;
+//	}
+//	
+//	public User() {
+//	}
 
 	public Long getId() {
 		return id;
@@ -70,10 +70,12 @@ public class User {
 	}
 
 	public String getPassword() {
+		
 		return password;
 	}
 
 	public void setPassword(String password) {
+		System.out.println(password);
 		this.password = PASS_ENC.encode(password);
 	}
 

@@ -17,8 +17,8 @@ class BetGrafComp extends React.Component{
             isonButton: false,
             isLogin: false,
             winBet: {},
-            isMyLastBet: false,
-            stateBet: "none" // small, ideal, many, none
+            betState: "",
+            stateBet: "none" // small, ideal, many, none, fist
         };
     }
 
@@ -53,9 +53,10 @@ class BetGrafComp extends React.Component{
                 console.error(err);
             }
             );
-            fetch("/api/TradeCar/" + this.props.id + "/myBet" ).then(res => res.text())
+            fetch("/api/TradeCar/" + this.props.id + "/isBet" ).then(res => res.text())
             .then((res) => {
-                this.setState({isMyLastBet: res == "true"});
+                console.log("frome:" + res);
+                this.setState({betState: res} );
             }, 
             (err) => {
                 console.error(err);
@@ -105,8 +106,16 @@ class BetGrafComp extends React.Component{
     }
 
     getDescText(){
-        if(this.state.isMyLastBet) {
+        console.log(this.state.betState)
+        console.log(this.state.betState == '"MYBET"')
+        if(this.state.betState == "MYBET") {
             return ("Ваша ставка последния на данный момент");
+        }
+        if(this.state.betState == "FIRST"){
+            return ("Будте первым");
+        }
+        if(this.state.betState == "MYCAR"){
+            return ("Это ваш товар? Не надо нарушать правила");
         }
         if(this.state.stateBet == "none") {
             return ("");

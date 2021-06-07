@@ -102,7 +102,7 @@ class RegistrationControler extends React.Component{
                         <Form.Control 
                             placeholder="Как к вам будут обращаться?" 
                             onChange={this.onChangeName.bind(this)}
-                            value = {this.state.login}
+                            value = {this.state.name}
                         />
                     </Form.Group>
                     </Col>

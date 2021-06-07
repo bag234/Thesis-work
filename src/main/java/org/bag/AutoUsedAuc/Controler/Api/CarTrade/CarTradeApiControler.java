@@ -73,19 +73,25 @@ public class CarTradeApiControler {
 	@GetMapping(path = "/{id}/bet")
 	public Bet getCarNwinBet(@PathVariable(name = "id") long id){
 		Optional<Car> optCar = tradeCarServise.getCarById(id);
-		return optCar.orElseThrow().getTrade().getWinBet();
+		return optCar.orElseThrow().getTrade().getWinBet() != null ? 
+					optCar.orElseThrow().getTrade().getWinBet() : 
+					betService.getEmpyBet(optCar.orElseThrow().getTrade().getPrice());
 	}
 	
-	@GetMapping(path = "/{id}/myBet")
-	public boolean isMyCarBet(@PathVariable(name = "id") long id, Principal prin) {
-		Optional<Car> optCar = tradeCarServise.getCarById(id);
-		return optCar.orElseThrow().getTrade().getWinBet().getBetter().getLogin() == prin.getName();
+	@GetMapping(path = "/{id}/isBet")
+	public String isCarBet(@PathVariable(name = "id") long id, Principal prin) {
+		return tradeCarServise.getBetType(id, prin.getName()).toString();
 	}
 	
 	@GetMapping(path = "/{id}/contact")
 	public String getCarNContact(@PathVariable(name = "id") long id){
 		Optional<Car> optCar = tradeCarServise.getCarById(id);
 		return optCar.orElseThrow().getTrade().getSeller().geteMail();
+	}
+	
+	@PostMapping(path = "/{id}/cancel")
+	public boolean cancelCarN(@PathVariable(name = "id") long id, Principal principal){
+		return tradeCarServise.cancelCar(id, principal.getName());
 	}
 	
 	@PostMapping
@@ -101,7 +107,7 @@ public class CarTradeApiControler {
 			if(tradeCarServise.updateTradeCar(car, id))
 				return car;
 		}
-			
+
 		throw new UsernameNotFoundException("User not login or DB error");
 	}
 

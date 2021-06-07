@@ -25,4 +25,8 @@ public class BetService {
 		return Optional.empty();
 	}
 	
+	public Bet getEmpyBet(double count) {
+		return new Bet(null, count);
+	}
+	
 }

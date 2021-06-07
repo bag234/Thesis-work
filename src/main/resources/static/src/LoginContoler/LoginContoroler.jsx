@@ -14,13 +14,13 @@ class LoginControler extends React.Component{
             <Form method="POST" action="/login">
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Логин</Form.Label>
-                    <Form.Control type="username" name="username" placeholder="Enter email" />
+                    <Form.Control type="username" name="username" placeholder="Введте логин" />
         
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Пароль</Form.Label>
-                    <Form.Control type="password" name="password" placeholder="Password" />
+                    <Form.Control type="password" name="password" placeholder="Папроль" />
                 </Form.Group>
                 
                 <Button variant="primary" type="submit">

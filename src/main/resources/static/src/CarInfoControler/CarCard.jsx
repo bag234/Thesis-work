@@ -44,7 +44,7 @@ class CarCard extends React.Component {
                         {this.props.obj.brand}, {this.props.obj.model}, {this.props.obj.gen} - {this.props.obj.year} года 
                         <Badge variant={this.stageVarStateDecode(this.props.obj.state)}>{this.rusStateDecode(this.props.obj.state)}</Badge></Card.Title>
                     <Card.Text>
-                        Тут возможно будет описание(нет)
+                        t
                     </Card.Text>
                     <Button variant="primary" href={"/change/" + this.props.obj.id}>
                         Изменить
@@ -54,14 +54,16 @@ class CarCard extends React.Component {
             </Card>
         );
         return (
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={"/api/Image/" + this.props.obj.imagesPath[0]} />
+            <Card style={{ width: '18rem'}}>
+                <Card.Img variant="top" style={{ width: '18rem', height: '10rem'}} src={"/api/Image/" + this.props.obj.imagesPath[0]} />
                 <Card.Body>
                     <Card.Title>
                         {this.props.obj.brand}, {this.props.obj.model}, {this.props.obj.gen} - {this.props.obj.year} года 
                         <Badge variant={this.stageVarStateDecode(this.props.obj.state)}>{this.rusStateDecode(this.props.obj.state)}</Badge></Card.Title>
                     <Card.Text>
-                        Тут возможно будет описание(нет)
+                        {this.props.obj.description == null ? "Описания нет" :
+                            this.props.obj.description
+                        }
                     </Card.Text>
                     <Button variant="primary" href={"/car/" + this.props.obj.id}>
                         {this.props.obj.trade.type == "OPEN"?"Торг" :"Подробние"}

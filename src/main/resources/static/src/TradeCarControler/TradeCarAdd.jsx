@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form"
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardColumns'
 import { Redirect } from "react-router";
@@ -15,8 +15,9 @@ class TradeCarAdd extends React.Component {
         super(props);
 
         this.state = {
-            TypeBodyCar: [],
+            
             typesBodyCar: this.props.car.typeBodyCar,
+            TypeBodyCar: [],
             TypeDriveUnitCar: [],
             TypeHeadLightCar: [],
             TypeMediaCar: [],
@@ -41,7 +42,8 @@ class TradeCarAdd extends React.Component {
             photo: this.props.car.imagesPath,
             dateEnd: null,
             isRiderct: false,
-    
+            description: this.props.car.description,
+            dayToEnd: 3 
         }
         // this.componentMoment();
     }
@@ -210,6 +212,8 @@ class TradeCarAdd extends React.Component {
     }
 
     buttonOkHandler() {
+        let date = new Date();
+        date.setDate(date.getDate() + this.state.dayToEnd);
         let jsp = {
             typeBodyCar: this.state.typesBodyCar,
             typeDriveUnitCar: this.state.typesDriveUnitCar,
@@ -223,9 +227,10 @@ class TradeCarAdd extends React.Component {
             trade: {
                 price: this.state.price,
                 step: this.state.step,
-                type: this.state.tradeType
+                type: this.state.tradeType,
+                dateEnd: date.toJSON()
             },
-            description: "",
+            description: this.state.description,
             milage: this.state.milage,
             state: this.state.state,
             typeHeadLightCar: this.state.typesHeadLightCar,
@@ -263,190 +268,251 @@ class TradeCarAdd extends React.Component {
         }
         return (
             <div id="tradecar-controler">
-                
                 <div>
-                    <Form>
-                        <Form.Group controlId="TradeCar.Barnd">
-                            <Form.Label>Марка</Form.Label>
-                            <Form.Control placeholder="Reno, Opel, BMW"
-                                onChange={(elm) => { this.setState({ brand: elm.target.value }) }}
-                                value={this.state.brand} />
-                        </Form.Group>
-                        <Form.Group controlId="TradeCar.Model">
-                            <Form.Label>Модель</Form.Label>
-                            <Form.Control placeholder="Model"
-                                onChange={(elm) => { this.setState({ model: elm.target.value }) }}
-                                value={this.state.model} />
-                        </Form.Group>
-                        <Form.Group controlId="TradeCar.Gen">
-                            <Form.Label>Покаление</Form.Label>
-                            <Form.Control placeholder="М7"
-                                onChange={(elm) => { this.setState({ gen: elm.target.value }) }}
-                                value={this.state.gen} />
-                        </Form.Group>
-                        <Form.Group controlId="exampleForm.ControlInput1">
-                            <Form.Label>Год выпуска</Form.Label>
-                            <Form.Control placeholder="20хх"
-                                onChange={(elm) => { this.setState({ year: elm.target.value }) }}
-                                value={this.state.year} />
-                        </Form.Group>
-                        <hr />
-                        <div id="all-enums">
-                            <Col>
-                                <Form.Label>Тип салона:</Form.Label>
-                                {
-                                    this.state.TypeBodyCar.map((elm) => {
-                                        return (<Form.Check
-                                            inline
-                                            checked = {!!(this.state.typesBodyCar.indexOf(elm) != -1)}
-                                            type="checkbox"
-                                            id={"TradeCar.TypeBody." + elm}
-                                            className="mb-2"
-                                            label={elm}
-                                            onClick={(e) => this.checkedControlBodyCar(e, elm)}
-                                        />);
-                                    })
-                                }
-                            </Col>
-                            <Col>
-                                <Form.Label>Тип рулевой:</Form.Label>
-                                {
-                                    this.state.TypeDriveUnitCar.map((elm) => {
-                                        return (<Form.Check
-                                            inline
-                                            checked = {!!(this.state.typesDriveUnitCar.indexOf(elm) != -1)}
-                                            type="checkbox"
-                                            id={"TradeCar.TypeDriveUnit." + elm}
-                                            className="mb-2"
-                                            label={elm}
-                                            onClick={(e) => this.checkedControlDriveUnitCar(e, elm)}
-                                        />);
-                                    })
-                                }
-                            </Col>
-                            <Col>
-                                <Form.Label>Тип фар:</Form.Label>
-                                {
-                                    this.state.TypeHeadLightCar.map((elm) => {
-                                        return (<Form.Check
-                                            inline
-                                            checked = {!!(this.state.typesHeadLightCar.indexOf(elm) != -1)}
-                                            type="checkbox"
-                                            id={"TradeCar.TypeHeTYPE3adLight." + elm}
-                                            className="mb-2"
-                                            label={elm}
-                                            onClick={(e) => this.checkedControlHeadLightCar(e, elm)}
-                                        />);
-                                    })
-                                }
-                            </Col>
-                            <Col>
-                                <Form.Label>Тип Медио системы:</Form.Label>
-                                {
-                                    this.state.TypeMediaCar.map((elm) => {
-                                        return (<Form.Check
-                                            inline
-                                            checked = {!!(this.state.typesMediaCar.indexOf(elm) != -1)}
-                                            type="checkbox"
-                                            id={"TradeCar.TypeMedia." + elm}
-                                            className="mb-2"checked = {this.state.state == "BAD"}
-                                            label={elm}
-                                            onClick={(e) => this.checkedControlMediaCar(e, elm)}
-                                        />);
-                                    })
-                                }
-                            </Col>
-                            <Col>
-                                <Form.Label>Тип мотора:</Form.Label>
-                                {
-                                    this.state.TypeMotorCar.map((elm) => {
-                                        return (<Form.Check
-                                            inline
-                                            checked = {!!(this.state.typesMotorCar.indexOf(elm) != -1)}
-                                            type="checkbox"
-                                            id={"TradeCar.TypeMotor." + elm}
-                                            className="mb-2"
-                                            label={elm}
-                                            onClick={(e) => this.checkedControlMotorCar(e, elm)}
-                                        />);
-                                    })
-                                }
-                            </Col>
-                        </div>
-                        <hr />
-                        <Form.Label>Коробка передач:</Form.Label>
-                        <Form.Check
-                            inline
-                            checked = {!this.state.transmisionType}
-                            label="Механика"
-                            type="radio"
-                            name="Drive"
-                            onClick={(e) => this.setState({ transmisionType: false })}
-                        />
-                        <Form.Check
-                            inline
-                            checked = {this.state.transmisionType}
-                            label="Автомат"
-                            type="radio"
-                            onClick={(e) => this.setState({ transmisionType: true })}
-                            name="Drive"
-                        />
-                        <Form.Label>Автозапуск двигателя:</Form.Label>
-                        <Form.Check
-                            inline
-                            checked = {this.state.autoRunMotor}
-                            label="Да"
-                            type="radio"
-                            name="Motor"
-                            onClick={(e) => this.setState({ autoRunMotor: true })}
+                    <Row>
+                        <Col>
+                            <Form.Group controlId="TradeCar.Barnd">
+                                <Form.Label>Марка</Form.Label>
+                                <Form.Control placeholder="Reno, Opel, BMW"
+                                    onChange={(elm) => { this.setState({ brand: elm.target.value }) }}
+                                    value={this.state.brand} />
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group controlId="TradeCar.Model">
+                                <Form.Label>Модель</Form.Label>
+                                <Form.Control placeholder="Model"
+                                    onChange={(elm) => { this.setState({ model: elm.target.value }) }}
+                                    value={this.state.model} />
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group controlId="TradeCar.Gen">
+                                <Form.Label>Покаление</Form.Label>
+                                <Form.Control placeholder="М7"
+                                    onChange={(elm) => { this.setState({ gen: elm.target.value }) }}
+                                    value={this.state.gen} />
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Form.Group controlId="TradeCar.Volume">
+                                <Form.Label>Объем двигателя</Form.Label>
+                                <Form.Control placeholder="50"
+                                    onChange={(elm) => { this.setState({ volume: elm.target.value }) }}
+                                    value={this.state.volume} />
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group controlId="TradeCar.Milage">
+                                <Form.Label>Пробег</Form.Label>
+                                <Form.Control placeholder="50"
+                                    onChange={(elm) => { this.setState({ milage: elm.target.value }) }}
+                                    value={this.state.milage} />
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group controlId="TradeCar.yeat">
+                                <Form.Label>Год выпуска</Form.Label>
+                                <Form.Control placeholder="20хх"
+                                    onChange={(elm) => { this.setState({ year: elm.target.value }) }}
+                                    value={this.state.year} />
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    <hr />
+                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Описание:</Form.Label>
+                        <Form.Control
+                            value={this.state.description}
+                            onChange={(elm) => { this.setState({ description: elm.target.value }) }} as="textarea" rows={5} />
+                    </Form.Group>
+                    <div id="all-enums">
 
-                        />
-                        <Form.Check
-                            inline
-                            checked = {!this.state.autoRunMotor}
-                            label="Нет"
-                            type="radio"
-                            onClick={(e) => this.setState({ autoRunMotor: false })}
-                            name="Motor"
-                        />
+                        <Row md={4} className="ml-1">
+                            <Form.Label>Какой Кузов:</Form.Label>
+                            {
+                                this.state.TypeBodyCar.map((elm) => {
+                                    return (<Col md="auto"><Form.Check
+                                        inline
+                                        checked={!!(this.state.typesBodyCar.indexOf(elm) != -1)}
+                                        type="checkbox"
+                                        id={"TradeCar.TypeBody." + elm}
+                                        className="mb-2"
+                                        label={elm}
+                                        onClick={(e) => this.checkedControlBodyCar(e, elm)}
+                                    /></Col>);
+                                })
+                            }
+                        </Row>
+
+                        <Row md={4} className="ml-1">
+                            <Form.Label>Привод:</Form.Label>
+                            {
+                                this.state.TypeDriveUnitCar.map((elm) => {
+                                    return (<Col md="auto"><Form.Check
+                                        inline
+                                        checked={!!(this.state.typesDriveUnitCar.indexOf(elm) != -1)}
+                                        type="checkbox"
+                                        id={"TradeCar.TypeDriveUnit." + elm}
+                                        className="mb-2"
+                                        label={elm}
+                                        onClick={(e) => this.checkedControlDriveUnitCar(e, elm)}
+                                    /> </Col>);
+                                })
+                            }
+                        </Row>
+                        <Row md={4} className="ml-1">
+                            <Form.Label>Устоноленые фары:</Form.Label>
+                            {
+                                this.state.TypeHeadLightCar.map((elm) => {
+                                    return (<Col md="auto"><Form.Check
+                                        inline
+                                        checked={!!(this.state.typesHeadLightCar.indexOf(elm) != -1)}
+                                        type="checkbox"
+                                        id={"TradeCar.TypeHeTYPE3adLight." + elm}
+                                        className="mb-2"
+                                        label={elm}
+                                        onClick={(e) => this.checkedControlHeadLightCar(e, elm)}
+                                    /></Col>);
+                                })
+                            }
+                        </Row>
+                        <Row md={4} className="ml-1">
+                            <Form.Label>Медиосистемы:</Form.Label>
+                            {
+                                this.state.TypeMediaCar.map((elm) => {
+                                    return (<Col md="auto"><Form.Check
+                                        inline
+                                        checked={!!(this.state.typesMediaCar.indexOf(elm) != -1)}
+                                        type="checkbox"
+                                        id={"TradeCar.TypeMedia." + elm}
+                                        className="mb-2"
+                                        label={elm}
+                                        onClick={(e) => this.checkedControlMediaCar(e, elm)}
+                                    /></Col>);
+                                })
+                            }
+                        </Row>
+                        <Row md={4} className="ml-1">
+                            <Form.Label>мотор:</Form.Label>
+                            {
+                                this.state.TypeMotorCar.map((elm) => {
+                                    return (<Col md="auto"><Form.Check
+                                        inline
+                                        checked={!!(this.state.typesMotorCar.indexOf(elm) != -1)}
+                                        type="checkbox"
+                                        id={"TradeCar.TypeMotor." + elm}
+                                        className="mb-2"
+                                        label={elm}
+                                        onClick={(e) => this.checkedControlMotorCar(e, elm)}
+                                    /></Col>);
+                                })
+                            }
+                        </Row>
+
+                    </div>
+                    <hr />
+                    <Row md={4} className="ml-1">
+                        <Form.Label>Коробка передач:</Form.Label>
+                        <Col md="auto">
+                            <Form.Check
+                                inline
+                                checked={!this.state.transmisionType}
+                                label="Механика"
+                                type="radio"
+                                name="Drive"
+                                onClick={(e) => this.setState({ transmisionType: false })}
+                            />
+                        </Col>
+                        <Col md="auto">
+                            <Form.Check
+                                inline
+                                checked={this.state.transmisionType}
+                                label="Автомат"
+                                type="radio"
+                                onClick={(e) => this.setState({ transmisionType: true })}
+                                name="Drive"
+                            />
+                        </Col>
+                    </Row>
+                    <Row md={4} className="ml-1">
+                        <Form.Label>Автозапуск двигателя:</Form.Label>
+                        <Col md="auto">
+                            <Form.Check
+                                inline
+                                checked={this.state.autoRunMotor}
+                                label="Да"
+                                type="radio"
+                                name="Motor"
+                                onClick={(e) => this.setState({ autoRunMotor: true })}
+
+                            />
+                        </Col>
+                        <Col md="auto">
+                            <Form.Check
+                                inline
+                                checked={!this.state.autoRunMotor}
+                                label="Нет"
+                                type="radio"
+                                onClick={(e) => this.setState({ autoRunMotor: false })}
+                                name="Motor"
+                            />
+                        </Col>
+                    </Row>
+                    <Row md={4} className="ml-1">
                         <Form.Label>Оценка состояния</Form.Label>
-                        <Form.Check
-                            inline
-                            checked = {this.state.state == "BAD"}
-                            label="Плохое"
-                            type="radio"
-                            name="Star"
-                            onClick={(e) => this.setState({ state: "BAD" })}
-                        />
-                        <Form.Check
-                            inline
-                            checked = {this.state.state == "NORMAL"}
-                            label="Нормальное"
-                            type="radio"
-                            onClick={(e) => this.setState({ state: "NORMAL" })}
-                            name="Star"
-                        />
-                        <Form.Check
-                            inline
-                            checked = {this.state.state == "GOOD"}
-                            label="Хорошое"
-                            type="radio"
-                            onClick={(e) => this.setState({ state: "GOOD" })}
-                            name="Star"
-                        />
-                        <Form.Group controlId="TradeCar.Volume">
-                            <Form.Label>Объем двигателя</Form.Label>
-                            <Form.Control placeholder="50"
-                                onChange={(elm) => { this.setState({ volume: elm.target.value }) }}
-                                value={this.state.volume} />
-                        </Form.Group>
-                        <Form.Group controlId="TradeCar.Milage">
-                            <Form.Label>Пробег</Form.Label>
-                            <Form.Control placeholder="50"
-                                onChange={(elm) => { this.setState({ milage: elm.target.value }) }}
-                                value={this.state.milage} />
-                        </Form.Group>
-                    </Form>
+                        <Col md="auto">
+                            <Form.Check
+                                inline
+                                checked={this.state.state == "BAD"}
+                                label="Плохое"
+                                type="radio"
+                                name="Star"
+                                onClick={(e) => this.setState({ state: "BAD" })}
+                            />
+                        </Col>
+                        <Col md="auto">
+                            <Form.Check
+                                inline
+                                checked={this.state.state == "NORMAL"}
+                                label="Нормальное"
+                                type="radio"
+                                onClick={(e) => this.setState({ state: "NORMAL" })}
+                                name="Star"
+                            />
+                        </Col>
+                        <Col md="auto">
+                            <Form.Check
+                                inline
+                                checked={this.state.state == "GOOD"}
+                                label="Хорошое"
+                                type="radio"
+                                onClick={(e) => this.setState({ state: "GOOD" })}
+                                name="Star"
+                            />
+                        </Col>
+                    </Row>
+                    <hr />
+                    <div id="photo-controler">
+                        <CardColumns>
+                            {this.state.photo.map(elm => {
+                                return (
+                                    <Card style={{ width: '18rem' }}>
+                                        <Card.Img variant="top" src={"/api/Image/" + elm} />
+                                        <Card.Body>
+                                            <Card.Link variant="left" onClick={(e) => this.dropImage(e, elm)}>Открепить</Card.Link>
+                                        </Card.Body>
+                                    </Card>
+                                );
+                            })}
+                        </CardColumns>
+                        <Form.File id="formcheck-api-regular" >
+                            <Form.File.Label>Выбор фотографий</Form.File.Label>
+                            <Form.File.Input onChange={this.changeImage.bind(this)} />
+                        </Form.File>
+                    </div>
                     <hr />
                     <div id="Trade-contoler">
                         <Form.Label>Тип торгов:</Form.Label>
@@ -454,7 +520,7 @@ class TradeCarAdd extends React.Component {
                             inline
                             label="Фиксированое"
                             type="radio"
-                            checked = {this.state.tradeType == "TYPICAL"}
+                            checked={this.state.tradeType == "TYPICAL"}
                             name="TradeType"
                             onClick={(e) => this.setState({ tradeType: "TYPICAL" })}
                         />
@@ -462,7 +528,7 @@ class TradeCarAdd extends React.Component {
                             inline
                             label="Публично"
                             type="radio"
-                            checked = {this.state.tradeType == "OPEN"}
+                            checked={this.state.tradeType == "OPEN"}
                             onClick={(e) => this.setState({ tradeType: "OPEN" })}
                             name="TradeType"
                         />
@@ -487,29 +553,41 @@ class TradeCarAdd extends React.Component {
                                     onChange={(elm) => { this.setState({ step: elm.target.value }) }}
                                     value={this.state.step} />
                             </Form.Group>
+                                    <Form.Label>Длительность торгов в днях({this.state.dayToEnd} дня)</Form.Label> <br/>
+                                    <input 
+                                        type="range" 
+                                        onChange={(elm) => { this.setState({dayToEnd: elm.target.value})}} 
+                                        class="form-range" min="1" max="15" id="dateRange" className="w-100 mb-3"></input>
+                                        
                         </div> : ""}
                     </div>
                 </div>
-                <div id="photo-controler">
-                    <CardColumns>
-                        {this.state.photo.map(elm => {
-                            return (
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src={"/api/Image/" + elm} />
-                                    <Card.Body>
-                                        <Card.Link variant="left" onClick={(e) => this.dropImage(e, elm)}>Открепить</Card.Link>
-                                    </Card.Body>
-                                </Card>
-                            );
-                        })}
-                    </CardColumns>
-                    <Form.File id="formcheck-api-regular" >
-                        <Form.File.Label>Выбор фотографий</Form.File.Label>
-                        <Form.File.Input onChange={this.changeImage.bind(this)} />
-                    </Form.File>
-                </div>
-
-                <Button onClick={this.buttonOkHandler.bind(this)}>OK CAR</Button>
+                <Row>
+                    <Col>
+                        <Button block onClick={this.buttonOkHandler.bind(this)}>{
+                            !this.props.mode ? 
+                            "Добавить мою машину":
+                            "Изменить мою машину"
+                        }</Button>
+                    </Col>
+                    {
+                        this.props.mode ? 
+                        <Col>
+                            <Button block onClick={(elm) =>
+                                {
+                                    fetch("/api/TradeCar/" + this.props.car.id + "/cancel", {method:'POST'})
+                                }
+                            }>{
+                            this.props.mode ? 
+                            "Удалить мою машину":
+                            ""
+                        }</Button>
+                        </Col>
+                        :
+                        ""
+                    }
+                </Row>
+               
             </div>
         );
     }

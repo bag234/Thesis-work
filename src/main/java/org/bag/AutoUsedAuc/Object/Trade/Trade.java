@@ -44,7 +44,7 @@ public class Trade {
 	@JoinColumn(name = "id_winBet")
 	Bet winBet;
 	
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.DATE)
 	Date dateEnd;
 	
 	@Temporal(TemporalType.DATE)

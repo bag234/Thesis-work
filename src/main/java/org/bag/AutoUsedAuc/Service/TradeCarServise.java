@@ -1,12 +1,15 @@
 package org.bag.AutoUsedAuc.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import org.bag.AutoUsedAuc.Controler.Api.CarTrade.GetBetEnum;
 import org.bag.AutoUsedAuc.Object.Bet.Bet;
 import org.bag.AutoUsedAuc.Object.Car.Car;
 import org.bag.AutoUsedAuc.Object.Trade.Trade;
+import org.bag.AutoUsedAuc.Object.Trade.TradeState;
 import org.bag.AutoUsedAuc.Object.Trade.TradeType;
 import org.bag.AutoUsedAuc.Object.User.User;
 import org.bag.AutoUsedAuc.Repository.IBetRep;
@@ -75,8 +78,15 @@ public class TradeCarServise {
 		if(!tradeRep.findById(id).isPresent())
 			return false;
 		car.setId(id);
-		car.getTrade().setId(id);
-		tradeRep.save(car.getTrade());
+		if(car.getTrade().getType() == TradeType.OPEN) {
+			car.setTrade(carRep.findById(id).get().getTrade());
+		}
+		else {
+			Trade t = (carRep.findById(id).get().getTrade());
+			t.setPrice(car.getTrade().getPrice());
+			car.setTrade(t);
+			tradeRep.save(t);
+		}
 		carRep.save(car);
 		return true;
 	}
@@ -95,6 +105,32 @@ public class TradeCarServise {
 		}
 	}
 	
+	public boolean cancelCar(long id, String Login) {
+		Car car = carRep.findById(id).orElseThrow();
+		if (car.getTrade().getSeller().getName() != Login)		
+			return false;
+		car.getTrade().setState(TradeState.CANCEL);
+		tradeRep.save(car.getTrade());
+		return true;
+	}
+	
+	public GetBetEnum getBetType(long id, String login) {
+		
+		if(carRep.findById(id).isEmpty())
+			return GetBetEnum.ERR;
+		Trade trade = carRep.findById(id).orElseThrow().getTrade();
+		if (trade.getType() != TradeType.OPEN)
+			return GetBetEnum.ERR;
+		if(login != null)
+			if (trade.getSeller().getLogin() == login)
+				return GetBetEnum.MYCAR;
+		if (trade.getWinBet() == null)
+			return GetBetEnum.FIRST;
+		if(trade.getWinBet().getBetter().getLogin() == login)
+			return GetBetEnum.MYBET;
+		return GetBetEnum.NOTMY;
+	}
+	
 	/**
 	 * 	trade id = car id 
 	 * 	In trade repository search of user => result convert to List<Car>  
@@ -104,7 +140,7 @@ public class TradeCarServise {
 		List<Car> cars = new ArrayList<Car>();
 		List<Trade> trades = tradeRep.findAllBySeller(userRep.findByLogin(login).orElseThrow());
 		trades.forEach(t -> {
-			cars.add(carRep.findById(t.getId()).orElseThrow());
+			cars.add(carRep.findByTrade(t).orElseThrow());
 		});
 		return cars;
 	}
@@ -123,7 +159,10 @@ public class TradeCarServise {
 		Car car = optCar.get();
 		if(car.getTrade().getType() != TradeType.OPEN)
 			return false;
-		if(car.getTrade().getWinBet().getCount_Bet() + car.getTrade().getStep() > bet.getCount_Bet())
+		if(car.getTrade().getWinBet() != null)
+			if(car.getTrade().getWinBet().getCount_Bet() + car.getTrade().getStep() > bet.getCount_Bet())
+				return false;
+		if(car.getTrade().getDateEnd().before(new Date()))
 			return false;
 		car.getTrade().setWinBet(bet);
 		betRep.save(bet);
@@ -138,7 +177,8 @@ public class TradeCarServise {
 	 * @return return all car
 	 */
 	public List<Car> getAllCar(){
-		return carRep.findAll();
+		return carRep.findAllNotCancelCar();
+//		return carRep.findAll();
 	}
 	
 	public Optional<Car> getCarById(long id){

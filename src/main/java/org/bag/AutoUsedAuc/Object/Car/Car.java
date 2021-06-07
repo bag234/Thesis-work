@@ -40,7 +40,7 @@ public class Car {
 	@JoinTable(name = "car_typemotor")
 	Set<TypeMotorCar> typeMotorCar;
 	
-	boolean transmisionType; // transmision type: true - auto, false - mehanical
+	boolean transmisionType; // transmision type: true - auto, false - meсhanical
 	
 	String brand;
 	
@@ -86,6 +86,15 @@ public class Car {
 		imagesPath = new ArrayList<String>();
 	}
 
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 	public Long getId() {
 		return id;
 	}

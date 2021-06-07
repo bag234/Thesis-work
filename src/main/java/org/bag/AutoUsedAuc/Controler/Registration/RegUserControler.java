@@ -34,7 +34,8 @@ public class RegUserControler {
 	
 	@PostMapping(produces = {"text/html"})
 	@ResponseBody
-	String addNewUser(@RequestBody User user) {
+	public String addNewUser(@RequestBody User user) {
+		System.out.println(user.getPassword());
 		if(userServ.addNewUser(user))
 			// <- why not
 			;

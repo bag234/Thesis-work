@@ -44,9 +44,10 @@ let empyCar = {
 
 
 reactDom.render(
-    <div>
+  
+    <div style={{backgroundImage: 'url("/api/Image/background")' ,height: "100vh"}}>
         <NavBarControler />
-    <div class="container mb-4">
+    <div class="container mt-4 p-4 bg-light border rounded">
     <Router>
         <Switch>
             <Route path="/registration" exact component={RegistrationControler}></Route>
