@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form"
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardColumns'
 import CarCard from "./CarCard.jsx";
@@ -216,94 +216,88 @@ class CarsControler extends React.Component{
     render(){
         return(
             <div id="cars-controler">
-                <div id="cars-filter">
+                <div id="cars-filter" className="mb-4">
                     <h3>Фильтры:</h3>
                     <div id="types-car-filter">
-                        <Col>{this.state.state == "NONE"}
-                            <Form.Label>Тип салона:</Form.Label>
+                        <Row md={4} className="ml-1">
+                            <Form.Label>Какой Кузов:</Form.Label>
                                 {
                                     this.state.TypeBodyCar.map((elm) => {
-                                        return (<Form.Check
+                                        return (<Col md="auto"><Form.Check
                                             inline
                                             type="checkbox"
                                             id={"Cars.TypeBody." + elm}
                                             className="mb-2"
                                             label={elm}
                                             onClick={(e) => this.checkedControlBodyCar(e, elm)}
-                                        />);
+                                        /></Col>);
                                     })
                                 }
-                        </Col>
-                        <Col>
-                            <Form.Label>Тип рулевой:</Form.Label>
+                        </Row>
+                        <Row md={4} className="ml-1">
+                            <Form.Label>Привод:</Form.Label>
                                 {
                                     this.state.TypeDriveUnitCar.map((elm) => {
-                                        return (<Form.Check
+                                        return (<Col md="auto"><Form.Check
                                             inline
                                             type="checkbox"
                                             id={"Cars.TypeDriveUnit." + elm}
                                             className="mb-2"
                                             label={elm}
                                             onClick={(e) => this.checkedControlDriveUnitCar(e, elm)}
-                                        />);
+                                        /></Col>);
                                     })
                                 }
-                        </Col>
-                        <Col>
-                            <Form.Label>Тип фар:</Form.Label>
+                        </Row>
+                        <Row md={4} className="ml-1">
+                            <Form.Label>Устоноленые фары:</Form.Label>
                                 {
                                     this.state.TypeHeadLightCar.map((elm) => {
-                                        return (<Form.Check
+                                        return (<Col md="auto"><Form.Check
                                             inline
                                             type="checkbox"
                                             id={"Cars.TypeHeadLight." + elm}
                                             className="mb-2"
                                             label={elm}
                                             onClick={(e) => this.checkedControlHeadLightCar(e, elm)}
-                                        />);
+                                        /></Col>);
                                     })
                                 }
-                        </Col>
-                        <Col>
-                            <Form.Label>Тип Медио системы:</Form.Label>
+                        </Row>
+                        <Row md={4} className="ml-1">
+                            <Form.Label>Медиосистемы:</Form.Label>
                                 {
                                     this.state.TypeMediaCar.map((elm) => {
-                                        return (<Form.Check
+                                        return (<Col md="auto"><Form.Check
                                             inline
                                             type="checkbox"
                                             id={"Cars.TypeMedia." + elm}
                                             className="mb-2"
                                             label={elm}
                                             onClick={(e) => this.checkedControlMediaCar(e, elm)}
-                                        />);
+                                        /></Col>);
                                     })
                                 }
-                        </Col>
-                        <Col>
-                            <Form.Label>Тип мотора:</Form.Label>
+                        </Row>
+                        <Row md={4} className="ml-1">
+                            <Form.Label>мотор:</Form.Label>
                                 {
-                                    this.state.TypeMotorCar.map((elm) => {<Form.Check
-                                        inline
-                                        checked = {this.state.state == "BAD"}
-                                        label="Плохое"
-                                        type="radio"
-                                        name="Star"
-                                        onClick={(e) => this.setState({ state: "BAD" })}
-                                    />
-                                        return (<Form.Check
+                                    this.state.TypeMotorCar.map((elm) => {
+                                        return (<Col md="auto"><Form.Check
                                             inline
                                             type="checkbox"
                                             id={"Cars.TypeMotor." + elm}
                                             className="mb-2"
                                             label={elm}
                                             onClick={(e) => this.checkedControlMotorCar(e, elm)}
-                                        />);
+                                        /></Col>);
                                     })
                                 }
-                        </Col>
+                        </Row>
                     </div>
-                    <div id="state-car-filter">
+                    <Row md={4} className="ml-1">
                         <Form.Label>Оценка состояния</Form.Label>
+                        <Col md="auto">
                         <Form.Check
                             inline
                             checked = {this.state.state == "NONE"}
@@ -312,6 +306,8 @@ class CarsControler extends React.Component{
                             name="Star"
                             onClick={(e) => this.setState({ state: "NONE" })}
                         />
+                        </Col>
+                        <Col md="auto">
                         <Form.Check
                             inline
                             label="Плохое"
@@ -319,6 +315,8 @@ class CarsControler extends React.Component{
                             name="Star"
                             onClick={(e) => this.setState({ state: "BAD" })}
                         />
+                        </Col>
+                        <Col md="auto">
                         <Form.Check
                             inline
                             label="Нормальное"
@@ -326,6 +324,8 @@ class CarsControler extends React.Component{
                             onClick={(e) => this.setState({ state: "NORMAL" })}
                             name="Star"
                         />
+                        </Col>
+                        <Col md="auto">
                         <Form.Check
                             inline
                             label="Хорошое"
@@ -333,9 +333,12 @@ class CarsControler extends React.Component{
                             onClick={(e) => this.setState({ state: "GOOD" })}
                             name="Star"
                         />
-                    </div>
-                    <div id="autoRun-car-filter">
-                    <Form.Label>Авто запуск:</Form.Label>
+                        </Col>                      
+                        
+                    </Row>
+                    <Row md={4} className="ml-1">
+                        <Form.Label>Автозапуск двигателя:</Form.Label>
+                        <Col md="auto">
                         <Form.Check
                             inline
                             checked = {this.state.isIgnoreAutoRun}
@@ -345,6 +348,8 @@ class CarsControler extends React.Component{
                             onClick={(e) => this.setState({ isIgnoreAutoRun:true })}
 
                         />
+                        </Col>
+                        <Col md="auto">
                         <Form.Check
                             inline
                             label="Да"
@@ -353,6 +358,8 @@ class CarsControler extends React.Component{
                             onClick={(e) => this.setState({ isAutoRunMotor: true, isIgnoreAutoRun:false  })}
 
                         />
+                        </Col>
+                        <Col md="auto">
                         <Form.Check
                             inline
                             label="Нет"
@@ -360,11 +367,13 @@ class CarsControler extends React.Component{
                             onClick={(e) => this.setState({ isAutoRunMotor: false, isIgnoreAutoRun: false })}
                             name="Motor"
                         />
-                    </div>
+                        </Col>
+
+                    </Row>
                     <Button onClick={(elm) => this.sort()} >Применить Фильтры</Button>
                     <Button onClick={(elm) => this.setState({isSort: false})} >Снять Фильтры</Button>
                 </div>
-                <CardColumns>
+                <CardColumns className="mb-2">
                     {!this.state.isSort ? 
                         this.state.carsRen.map((elm) => <CarCard obj={elm} mode={false}/>) :
                         this.state.carsSort.map((elm) => <CarCard obj={elm} mode={false}/>) }

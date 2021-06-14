@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardColumns'
 import Carousel from 'react-bootstrap/Carousel'
 import Badge from 'react-bootstrap/Badge'
+import { Redirect } from "react-router";
 
 class RegistrationControler extends React.Component{
 

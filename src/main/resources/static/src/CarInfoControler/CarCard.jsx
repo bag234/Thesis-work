@@ -37,16 +37,19 @@ class CarCard extends React.Component {
     render() { //props.obj <-car object
         if(this.props.mode)
         return (
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={"/api/Image/" + this.props.obj.imagesPath[0]} />
+            <Card style={{ width: '18rem', height: '22rem'}}>
+                <Card.Img variant="top" style={{ width: '18rem', height: '10rem'}} src={"/api/Image/" + this.props.obj.imagesPath[0]} />
                 <Card.Body>
                     <Card.Title>
                         {this.props.obj.brand}, {this.props.obj.model}, {this.props.obj.gen} - {this.props.obj.year} года 
                         <Badge variant={this.stageVarStateDecode(this.props.obj.state)}>{this.rusStateDecode(this.props.obj.state)}</Badge></Card.Title>
                     <Card.Text>
-                        t
+                    {this.props.obj.description == null ? "Описания нет" :
+                            this.props.obj.description.length > 40 ? this.props.obj.description.slice(0,39) + "..." :
+                                this.props.obj.description
+                        }
                     </Card.Text>
-                    <Button variant="primary" href={"/change/" + this.props.obj.id}>
+                    <Button variant="primary" block href={"/change/" + this.props.obj.id}>
                         Изменить
                     </Button>
                     
@@ -54,7 +57,7 @@ class CarCard extends React.Component {
             </Card>
         );
         return (
-            <Card style={{ width: '18rem'}}>
+            <Card style={{ width: '18rem', height: '22rem'}}>
                 <Card.Img variant="top" style={{ width: '18rem', height: '10rem'}} src={"/api/Image/" + this.props.obj.imagesPath[0]} />
                 <Card.Body>
                     <Card.Title>
@@ -62,14 +65,14 @@ class CarCard extends React.Component {
                         <Badge variant={this.stageVarStateDecode(this.props.obj.state)}>{this.rusStateDecode(this.props.obj.state)}</Badge></Card.Title>
                     <Card.Text>
                         {this.props.obj.description == null ? "Описания нет" :
-                            this.props.obj.description
+                            this.props.obj.description.length > 40 ? this.props.obj.description.slice(0,39) + "..." :
+                                this.props.obj.description
                         }
-                    </Card.Text>
-                    <Button variant="primary" href={"/car/" + this.props.obj.id}>
-                        {this.props.obj.trade.type == "OPEN"?"Торг" :"Подробние"}
-                    </Button>
-                    
-                </Card.Body>
+                        <Button variant="primary" block href={"/car/" + this.props.obj.id}>
+                            {this.props.obj.trade.type == "OPEN"?"Торг" :"Подробние"}
+                        </Button>
+                    </Card.Text>                 
+                </Card.Body> 
             </Card>
         );
     }

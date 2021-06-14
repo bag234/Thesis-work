@@ -198,7 +198,6 @@ class TradeCarAdd extends React.Component {
         );
         console.log(arr);
         this.setState({ photo: arr });
-        this.render()
     }
 
     dropImage(event, type) {
@@ -208,7 +207,6 @@ class TradeCarAdd extends React.Component {
             arr.shift();
         } 
         this.setState({ photo: arr });
-        this.render()
     }
 
     buttonOkHandler() {

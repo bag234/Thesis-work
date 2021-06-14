@@ -19,6 +19,7 @@ public interface ICarRep extends JpaRepository<Car, Long>{
 	List<Car> findAllNotCancelCar();
 	@Query(value = "SELECT c FROM Car c ORDER BY c.trade.dateRegiste DESC")
 	List<Car> getAllNewCar();
-	@Query(value = "SELECT c FROM Car c ORDER BY c.trade.dateEnd DESC ")
+	@Query(value = "SELECT c FROM Car c WHERE c.trade.type='OPEN' ORDER BY c.trade.dateEnd DESC ")
 	List<Car> getAllEndDateCar();
+
 }

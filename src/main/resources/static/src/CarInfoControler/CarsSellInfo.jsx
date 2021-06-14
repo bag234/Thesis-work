@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardColumns'
 import CarCard from "./CarCard.jsx";
 
-class CarsMyControler extends React.Component{
+class CarsSellInfo extends React.Component{
 
     constructor(props){
         super(props);
@@ -19,7 +19,7 @@ class CarsMyControler extends React.Component{
     }
 
     componentDidMount(){
-        fetch("/api/TradeCar/my").then(res => res.json())
+        fetch(this.props.link).then(res => res.json())
             .then(
                 (res) => {
                     this.setState({cars: res});
@@ -31,13 +31,11 @@ class CarsMyControler extends React.Component{
     render(){
         return(
             <div id="carsmy-controler">
-                <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-                    <h2>Мои лоты</h2>
-                    <p>Здесь вы можете посмотреть, изменить или удолть свои лоты.</p>
-                    
-                </div>
+                <h1>
+                    {this.props.name}
+                </h1>
                 <CardColumns>
-                    {this.state.cars.map((elm) => <CarCard obj={elm} mode={true}/>)}
+                    {this.state.cars.map((elm) => <CarCard obj={elm} mode={false}/>)}
                 </CardColumns>
             </div>
         );
@@ -45,4 +43,4 @@ class CarsMyControler extends React.Component{
 
 }
 
-export default CarsMyControler;
+export default CarsSellInfo;

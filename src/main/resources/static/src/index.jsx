@@ -17,6 +17,8 @@ import NavBarControler from "./NavBarControler/NavBarControler.jsx";
 import LoginControler from "./LoginContoler/LoginContoroler.jsx";
 import TradeCarChange from "./TradeCarControler/TradeCarChange.jsx";
 import CarsMyControler from "./CarInfoControler/CarMyControler.jsx";
+import MainPageController from "./CarInfoControler/MainPageController.jsx";
+import CarsSellInfo from "./CarInfoControler/CarsSellInfo.jsx";
 
 let empyCar = {
     typeBodyCar: [],
@@ -44,19 +46,25 @@ let empyCar = {
 
 
 reactDom.render(
-  
-    <div style={{backgroundImage: 'url("/api/Image/background")' ,height: "100vh"}}>
+      //backgroundImage: 'url("/api/Image/background")'  
+    <div style={{height: "100vh"}}>
         <NavBarControler />
-    <div class="container mt-4 p-4 bg-light border rounded">
+    <div className="container mt-4 p-4 bg-light border rounded">
     <Router>
         <Switch>
             <Route path="/registration" exact component={RegistrationControler}></Route>
             <Route path="/mail" exact component={MailSendCheck}></Route>
             <Route path="/user" exact component={UserPageControler}></Route>
             <Route path="/login" exact component={LoginControler}></Route>
-            <Route path="/" exact component={MailSendCheck}></Route>
+            <Route path="/" exact component={MainPageController}></Route>
             <Route path="/addCar">
                 <TradeCarAdd car={empyCar} mode={false}></TradeCarAdd>
+            </Route>
+            <Route path="/car/new">
+                <CarsSellInfo link="/api/TradeCar/new" name="Новинки на сайте"></CarsSellInfo>
+            </Route>
+            <Route path="/car/end">
+                <CarsSellInfo link="/api/TradeCar/end" name="Успей"></CarsSellInfo>
             </Route>
             <Route path="/car" exact component={CarsControler}></Route>
             <Route path="/car/:id" exact component={CarControler}></Route>

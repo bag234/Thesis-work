@@ -1,6 +1,7 @@
 package org.bag.AutoUsedAuc.Controler.Api.CarTrade;
 
 import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,7 +10,10 @@ import org.bag.AutoUsedAuc.Object.Car.Car;
 import org.bag.AutoUsedAuc.Object.Trade.Trade;
 import org.bag.AutoUsedAuc.Service.BetService;
 import org.bag.AutoUsedAuc.Service.TradeCarServise;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +31,8 @@ public class CarTradeApiControler {
 	TradeCarServise tradeCarServise;
 	
 	BetService betService;
+	
+
 	
 	/**
 	 * add cast to null(Principal) exception Handler
@@ -51,6 +57,17 @@ public class CarTradeApiControler {
 	@GetMapping(path = "/my",produces = {"application/hal+json"})
 	public List<Car> getCarMy(Principal principal){
 		return tradeCarServise.getMyCar(principal.getName());
+	}
+	
+	@GetMapping(path = "/new",produces = {"application/hal+json"})
+	public List<Car> getCarNew(){
+		return tradeCarServise.getAllNewCar();
+	}
+	
+	@GetMapping(path = "/end",produces = {"application/hal+json"})
+	public List<Car> getCarEnd(){
+		
+		return tradeCarServise.getAllEndCar();
 	}
 	
 	@GetMapping(path = "/{id}",produces = {"application/hal+json"})
@@ -89,7 +106,7 @@ public class CarTradeApiControler {
 		return optCar.orElseThrow().getTrade().getSeller().geteMail();
 	}
 	
-	@PostMapping(path = "/{id}/cancel")
+	@PostMapping(path = "/{id}/cancel")	
 	public boolean cancelCarN(@PathVariable(name = "id") long id, Principal principal){
 		return tradeCarServise.cancelCar(id, principal.getName());
 	}
@@ -107,8 +124,9 @@ public class CarTradeApiControler {
 			if(tradeCarServise.updateTradeCar(car, id))
 				return car;
 		}
-
 		throw new UsernameNotFoundException("User not login or DB error");
 	}
+	
+
 
 }

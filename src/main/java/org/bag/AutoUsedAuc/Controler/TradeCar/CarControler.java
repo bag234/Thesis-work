@@ -25,9 +25,18 @@ public class CarControler {
 	@GetMapping(path = "/{id}")
 	public String getCarMain(@PathVariable(name = "id") long id) {
 		if(tradeCarServise.getCarById(id).isEmpty())
-			return "riderct:/";
+			return "redirect:/";
 		return "index";
 	}
 	
+	@GetMapping(path = "/new")
+	public String getCarNew() {
+		return "index";
+	}
+	
+	@GetMapping(path = "/end")
+	public String getCarEnd() {
+		return "index";
+	}
 	
 }

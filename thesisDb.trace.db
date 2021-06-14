@@ -3871,3 +3871,19 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at java.base/java.nio.channels.FileChannel.tryLock(FileChannel.java:1178)
 	at org.h2.mvstore.FileStore.open(FileStore.java:163)
 	... 28 more
+2021-06-12 20:41:24 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "UPDATE TRADE SET 'STATE'[*] = 'OUTDATE' WHERE 'DATE_END' = 2021-05-25"; ожидалось "identifier"
+Syntax error in SQL statement "UPDATE TRADE SET 'STATE'[*] = 'OUTDATE' WHERE 'DATE_END' = 2021-05-25"; expected "identifier"; SQL statement:
+Update Trade set 'STATE' = 'OUTDATE' WHERE 'DATE_END' = 2021-05-25 [42001-200]
+2021-06-12 20:41:55 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "UPDATE TRADE SET 'STATE'[*] = 'OUTDATE' WHERE 'DATE_END' = '2021-05-25'"; ожидалось "identifier"
+Syntax error in SQL statement "UPDATE TRADE SET 'STATE'[*] = 'OUTDATE' WHERE 'DATE_END' = '2021-05-25'"; expected "identifier"; SQL statement:
+Update Trade set 'STATE' = 'OUTDATE' WHERE 'DATE_END' = '2021-05-25' [42001-200]
+2021-06-12 20:41:55 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "UPDATE TRADE SET 'STATE'[*] = 'OUTDATE' WHERE 'DATE_END' = '2021-05-25'"; ожидалось "identifier"
+Syntax error in SQL statement "UPDATE TRADE SET 'STATE'[*] = 'OUTDATE' WHERE 'DATE_END' = '2021-05-25'"; expected "identifier"; SQL statement:
+Update Trade set 'STATE' = 'OUTDATE' WHERE 'DATE_END' = '2021-05-25' [42001-200]
+2021-06-12 20:42:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "TRADE[*]"; ожидалось "TRUNCATE"
+Syntax error in SQL statement "TRADE[*]"; expected "TRUNCATE"; SQL statement:
+TRADE [42001-200]

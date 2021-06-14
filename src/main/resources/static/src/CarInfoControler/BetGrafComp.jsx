@@ -32,7 +32,7 @@ class BetGrafComp extends React.Component{
             console.error(err);
         }
         );
-   
+        this.update();
     }
 
     update(){
@@ -142,8 +142,12 @@ class BetGrafComp extends React.Component{
             <div id="bet-block">
                 <Row>
                     <Col>
+                        Текущая ставка: {this.state.winBet.count_Bet}
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
                         <Form.Group controlId="Car.Bet">
-                            <Form.Label>Цена</Form.Label>
                             <Form.Control onChange={this.onChangeBetCount.bind(this)} value={this.state.newBet}/>
                             <Form.Text className="text-muted">
                                  {this.getDescText()}
@@ -152,7 +156,7 @@ class BetGrafComp extends React.Component{
                     </Col>
                     <Col>
                         <Button disabled={!this.state.isonButton} onClick={this.onClickButton.bind(this)} variant="primary">
-                            Ставить?
+                            Ставить
                         </Button>
                     </Col>
                 </Row>

@@ -16,8 +16,13 @@ import org.bag.AutoUsedAuc.Repository.IBetRep;
 import org.bag.AutoUsedAuc.Repository.ICarRep;
 import org.bag.AutoUsedAuc.Repository.ITradeRep;
 import org.bag.AutoUsedAuc.Repository.IUserRep;
+import org.bag.AutoUsedAuc.Service.Mail.MailServise;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class TradeCarServise {
@@ -29,6 +34,15 @@ public class TradeCarServise {
 	ICarRep carRep;
 	
 	IBetRep betRep;
+	
+	MailServise mail;
+	
+	Logger log = LoggerFactory.getLogger(this.getClass());
+	
+	@Autowired
+	public void setMail(MailServise mail) {
+		this.mail = mail;
+	}
 	
 	@Autowired
 	public void setBetRep(IBetRep betRep) {
@@ -98,7 +112,7 @@ public class TradeCarServise {
 	 */
 	public boolean isMyCar(long id, String login) {
 		try {
-			return tradeRep.findById(id).orElseThrow().getSeller().getName().equals(login);
+			return tradeRep.findById(id).orElseThrow().getSeller().getLogin().equals(login);
 		}
 		catch (Exception e) {
 			return false;
@@ -185,7 +199,29 @@ public class TradeCarServise {
 		return carRep.findById(id);
 	}
 	
-	/**
-	 *  info of car add
-	 */
+	public List<Car> getAllNewCar(){
+		return carRep.getAllNewCar();
+	}
+	
+	public List<Car> getAllEndCar(){
+		return carRep.getAllEndDateCar();
+	}
+	
+	@Scheduled(cron = "0 0 0 1/1 * ?")
+	public void outDateBet() {
+		log.info("Out date bet");
+		Date date = new Date();
+		List<Trade> trades = tradeRep.getOutDateBet(date);
+		for(Trade t : trades) {
+			Optional<Car> optC = carRep.findByTrade(t);
+			if(optC.isPresent()) {
+				mail.mailWinBetPasswordSend(t.getWinBet().getBetter().geteMail(), optC.get());
+				mail.mailEndBetPasswordSend(t.getSeller().geteMail(), optC.get());
+			}
+			else {
+				log.error("Out date bet" + t.toString());
+			}
+		}
+		tradeRep.makeOutDate(date);
+	}
 }

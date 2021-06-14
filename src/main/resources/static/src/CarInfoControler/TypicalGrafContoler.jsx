@@ -54,7 +54,15 @@ class TypicalGrafControler extends React.Component{
             return(<div>Пожалуйста авторизутесь</div>);
         return(
             <div id="contact-block">
-                { this.state.isGetContact ? this.state.contact :  <Button onClick={this.onClickButton.bind(this)} variant="primary">Primary</Button>}
+                <Row>
+                    <Col>
+                        Цена на товар: {this.state.winBet.count_Bet}
+                    </Col>
+                </Row>
+                <Row>
+                    {this.state.isGetContact ? "Почта для связи:" + this.state.contact :  <Button onClick={this.onClickButton.bind(this)} variant="primary">Primary</Button>}
+                </Row>
+                
             </div>
         );
     }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Alert from 'react-bootstrap/Alert'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -11,6 +11,41 @@ import Carousel from 'react-bootstrap/Carousel'
 import Badge from 'react-bootstrap/Badge'
 import BetGrafComp from "./BetGrafComp.jsx";
 import TypicalGrafControler from "./TypicalGrafContoler.jsx";
+import Modal from 'react-bootstrap/Modal'
+
+function Warning(props) {
+    const [show, setShow] = useState(true);
+  
+    const handleClose = () => setShow(false);
+    
+    if(props.mode != "CURRENT")
+    
+    return (
+      <>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Лот не актуален</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+             {
+                 props.mode == "OUTDATE" ? "На даный лот время использования вышоло": "Данный лот был удолен пользователем"
+             }
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+                Понятно
+            </Button>
+            <Button variant="primary" href="/">На главную</Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
 
 class CarControler extends React.Component {
 
@@ -62,6 +97,7 @@ class CarControler extends React.Component {
         if (this.state.isLoding)
             return (
                 <div id="content-car">
+                    <Warning mode={this.state.carObj.trade.state}></Warning>
                     <Row id="name-car">
                         <h1>
                             {this.state.carObj.brand}, {this.state.carObj.model}, {this.state.carObj.gen} - {this.state.carObj.year} года
@@ -98,7 +134,7 @@ class CarControler extends React.Component {
                             </Row>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="mb-3">
                         <Col>
                             <h3>Описание:</h3>
                             <br></br>
