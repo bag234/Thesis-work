@@ -1,81 +1,35 @@
-2021-06-14 12:34:10.771  INFO 26313 --- [main] o.b.AutoUsedAuc.AutoUsedAucApplication   : Starting AutoUsedAucApplication using Java 14.0.2 on nuc-desktop with PID 26313 (/home/bag234/Thesis-workspace/AutoUsedAuc/target/classes started by bag234 in /home/bag234/Thesis-workspace/AutoUsedAuc)
-2021-06-14 12:34:10.774  INFO 26313 --- [main] o.b.AutoUsedAuc.AutoUsedAucApplication   : No active profile set, falling back to default profiles: default
-2021-06-14 12:34:11.264  INFO 26313 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-06-14 12:34:11.309  INFO 26313 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 4 JPA repository interfaces.
-2021-06-14 12:34:11.864  INFO 26313 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-14 12:34:11.870  INFO 26313 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-14 12:34:11.870  INFO 26313 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
-2021-06-14 12:34:11.929  INFO 26313 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-14 12:34:11.929  INFO 26313 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1105 ms
-2021-06-14 12:34:11.968  INFO 26313 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-06-14 12:34:12.063  INFO 26313 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-06-14 12:34:12.067  INFO 26313 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./thesisDb'
-2021-06-14 12:34:12.166  INFO 26313 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-06-14 12:34:12.197  INFO 26313 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
-2021-06-14 12:34:12.260  INFO 26313 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-06-14 12:34:12.326  INFO 26313 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2021-06-14 12:34:12.894  INFO 26313 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-06-14 12:34:12.902  INFO 26313 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-06-14 12:34:13.369  WARN 26313 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-06-14 12:34:13.550  INFO 26313 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@50f6ecab, org.springframework.security.web.context.SecurityContextPersistenceFilter@3465edf9, org.springframework.security.web.header.HeaderWriterFilter@65bb4cb9, org.springframework.security.web.authentication.logout.LogoutFilter@3dc39412, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7b1d2f65, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3713bedc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e5cbcfe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fc21ff4, org.springframework.security.web.session.SessionManagementFilter@7fd32c56, org.springframework.security.web.access.ExceptionTranslationFilter@4d2950ed, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3c5044fa]
-2021-06-14 12:34:13.627  INFO 26313 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-14 12:34:13.692  INFO 26313 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-06-14 12:34:13.816  INFO 26313 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-06-14 12:34:13.842  INFO 26313 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-14 12:34:13.851  INFO 26313 --- [main] o.b.AutoUsedAuc.AutoUsedAucApplication   : Started AutoUsedAucApplication in 3.381 seconds (JVM running for 3.841)
-2021-06-14 12:34:51.783  INFO 26313 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-14 12:34:51.784  INFO 26313 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-14 12:34:51.786  INFO 26313 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2021-06-14 13:00:00.000  INFO 26313 --- [scheduling-1] o.b.AutoUsedAuc.Service.TradeCarServise  : Out date bet
-2021-06-14 13:00:00.032 ERROR 26313 --- [scheduling-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
-
-java.lang.NullPointerException: null
-	at org.bag.AutoUsedAuc.Service.TradeCarServise.outDateBet(TradeCarServise.java:218) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.6.jar:5.3.6]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.6.jar:5.3.6]
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) ~[spring-context-5.3.6.jar:5.3.6]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
-
-2021-06-14 23:03:37.393  INFO 26313 --- [RMI TCP Connection(280)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2021-06-14 23:03:37.414  INFO 26313 --- [RMI TCP Connection(280)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
-2021-06-14 23:03:37.415  INFO 26313 --- [RMI TCP Connection(280)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-06-14 23:03:37.418  INFO 26313 --- [RMI TCP Connection(280)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-06-14 23:03:37.421  INFO 26313 --- [RMI TCP Connection(280)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-06-14 23:03:37.427  INFO 26313 --- [RMI TCP Connection(280)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-06-14 23:16:13.635  INFO 30826 --- [main] o.b.AutoUsedAuc.AutoUsedAucApplication   : Starting AutoUsedAucApplication using Java 14.0.2 on nuc-desktop with PID 30826 (/home/bag234/Thesis-workspace/AutoUsedAuc/target/classes started by bag234 in /home/bag234/Thesis-workspace/AutoUsedAuc)
-2021-06-14 23:16:13.638  INFO 30826 --- [main] o.b.AutoUsedAuc.AutoUsedAucApplication   : No active profile set, falling back to default profiles: default
-2021-06-14 23:16:14.148  INFO 30826 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-06-14 23:16:14.196  INFO 30826 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 4 JPA repository interfaces.
-2021-06-14 23:16:14.783  INFO 30826 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-14 23:16:14.789  INFO 30826 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-14 23:16:14.789  INFO 30826 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
-2021-06-14 23:16:14.853  INFO 30826 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-14 23:16:14.854  INFO 30826 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1159 ms
-2021-06-14 23:16:14.892  INFO 30826 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-06-14 23:16:15.001  INFO 30826 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-06-14 23:16:15.005  INFO 30826 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./thesisDb'
-2021-06-14 23:16:15.123  INFO 30826 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-06-14 23:16:15.151  INFO 30826 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
-2021-06-14 23:16:15.225  INFO 30826 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-06-14 23:16:15.294  INFO 30826 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2021-06-14 23:16:15.874  INFO 30826 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-06-14 23:16:15.880  INFO 30826 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-06-14 23:16:16.368  WARN 30826 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-06-14 23:16:16.552  INFO 30826 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16cbba0f, org.springframework.security.web.context.SecurityContextPersistenceFilter@6773bab2, org.springframework.security.web.header.HeaderWriterFilter@16c9f7f0, org.springframework.security.web.authentication.logout.LogoutFilter@34d3bfca, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6cb3463b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d758472, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@cc7909f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28d16af8, org.springframework.security.web.session.SessionManagementFilter@7d75940, org.springframework.security.web.access.ExceptionTranslationFilter@77e5c765, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69e8b711]
-2021-06-14 23:16:16.648  INFO 30826 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-14 23:16:16.711  INFO 30826 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2021-06-14 23:16:16.862  INFO 30826 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2021-06-14 23:16:16.896  INFO 30826 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-14 23:16:16.907  INFO 30826 --- [main] o.b.AutoUsedAuc.AutoUsedAucApplication   : Started AutoUsedAucApplication in 3.603 seconds (JVM running for 4.058)
-2021-06-14 23:19:12.971  INFO 30826 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-14 23:19:12.972  INFO 30826 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-14 23:19:12.974  INFO 30826 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-06-15 00:00:00.001  INFO 30826 --- [scheduling-1] o.b.AutoUsedAuc.Service.TradeCarServise  : Out date bet
+2021-06-15 13:26:44.296  INFO 30826 --- [RMI TCP Connection(168)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-06-15 13:26:44.316  INFO 30826 --- [RMI TCP Connection(168)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-06-15 13:26:44.317  INFO 30826 --- [RMI TCP Connection(168)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-15 13:26:44.320  INFO 30826 --- [RMI TCP Connection(168)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-06-15 13:26:44.323  INFO 30826 --- [RMI TCP Connection(168)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-06-15 13:26:44.325  INFO 30826 --- [RMI TCP Connection(168)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-06-15 13:27:19.622  INFO 35416 --- [main] o.b.AutoUsedAuc.AutoUsedAucApplication   : Starting AutoUsedAucApplication using Java 14.0.2 on nuc-desktop with PID 35416 (/home/bag234/Thesis-workspace/AutoUsedAuc/target/classes started by bag234 in /home/bag234/Thesis-workspace/AutoUsedAuc)
+2021-06-15 13:27:19.624  INFO 35416 --- [main] o.b.AutoUsedAuc.AutoUsedAucApplication   : No active profile set, falling back to default profiles: default
+2021-06-15 13:27:20.134  INFO 35416 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-15 13:27:20.186  INFO 35416 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
+2021-06-15 13:27:20.735  INFO 35416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-15 13:27:20.741  INFO 35416 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-15 13:27:20.741  INFO 35416 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-06-15 13:27:20.806  INFO 35416 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-15 13:27:20.807  INFO 35416 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1145 ms
+2021-06-15 13:27:20.838  INFO 35416 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-06-15 13:27:20.916  INFO 35416 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-06-15 13:27:20.920  INFO 35416 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./thesisDb'
+2021-06-15 13:27:21.023  INFO 35416 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-06-15 13:27:21.050  INFO 35416 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-06-15 13:27:21.118  INFO 35416 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-06-15 13:27:21.181  INFO 35416 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-06-15 13:27:21.681  INFO 35416 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-06-15 13:27:21.687  INFO 35416 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-15 13:27:22.140  WARN 35416 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-15 13:27:22.306  INFO 35416 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d960561, org.springframework.security.web.context.SecurityContextPersistenceFilter@326dbe25, org.springframework.security.web.header.HeaderWriterFilter@8dedec8, org.springframework.security.web.authentication.logout.LogoutFilter@46ff1aad, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@59c00010, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3922b297, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7253c53, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3aa63b53, org.springframework.security.web.session.SessionManagementFilter@27bf574b, org.springframework.security.web.access.ExceptionTranslationFilter@5c03eb4e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@ba27ce6]
+2021-06-15 13:27:22.397  INFO 35416 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-15 13:27:22.460  INFO 35416 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-06-15 13:27:22.582  INFO 35416 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-06-15 13:27:22.611  INFO 35416 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-15 13:27:22.619  INFO 35416 --- [main] o.b.AutoUsedAuc.AutoUsedAucApplication   : Started AutoUsedAucApplication in 3.279 seconds (JVM running for 3.652)
+2021-06-15 13:27:40.712  INFO 35416 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-15 13:27:40.713  INFO 35416 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-15 13:27:40.714  INFO 35416 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

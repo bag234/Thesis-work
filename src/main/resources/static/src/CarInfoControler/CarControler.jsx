@@ -83,15 +83,78 @@ class CarControler extends React.Component {
         return "error";
     }
 
-    stageVarStateDecode(state) {
-        if (state == "BAD")
-            return "danger";
-        if (state == "NORMAL")
-            return "primary";
-        if (state == "GOOD")
-            return "success";
-        return "warning";
+    rusMultimedia(meta){
+        // ["AUX","BLUETHON","CD","USB","MON","GPS"]
+        if (meta == "AUX")
+            return "Aux";
+        if (meta == "CD")
+            return "CD";
+        if (meta == "BLUETHON")
+            return "Bluethon";
+        if (meta == "USB")
+            return "usb";
+        if (meta == "MON")
+            return "Монитор";
+        return meta;
     }
+
+    rusHedaLight(meta){
+        if (meta == "LED")
+            return "Светодиодные";
+        if (meta == "FROG")
+            return "Противотуманные";
+        if (meta == "XSEON")
+            return "Ксеон";
+        return meta;
+    }
+    
+    rusMotor(meta){
+        //["PETROL","PETROLPB","PETROLM","PETROLG","DISEL","DISELG","ELECTRO"]
+        if (meta == "PETROL")
+            return "Бензин";
+        if (meta == "PETROLPB")
+            return "Бензин Пропан-бутан";
+        if (meta == "PETROLG")
+            return "Бензин Гибрид";
+        if (meta == "PETROLM")
+            return "Бензин Метан";
+        if (meta == "DISEL")
+            return "Дизель";
+        if (meta == "DISELG")
+            return "Дизель гебрид";
+        if (meta == "ELECTRO")
+            return "Электро";
+        return meta;
+    }
+
+    rusDriveUnit(meta){
+        //["BEFORE","AFTER","SWITCH","FULL"]
+        if (meta == "BEFORE")
+            return "Передний";
+        if (meta == "AFTER")
+            return "Задний";
+        if (meta == "SWITCH")
+            return "Переключаемый";
+        if (meta == "FULL")
+            return "Полный";
+        return meta;
+    }
+
+    rusBodyCar(meta){
+        // ["SUV3","SUV5","CABRIOLETE","COMP","LIMUSINE"]
+        if (meta == "SUV3")
+            return "Внедорожник 3 дв.";
+        if (meta == "SUV5")
+            return "Внедорожник 5 дв.";
+        if (meta == "CABRIOLETE")
+            return "Кабриолет";
+        if (meta == "COMP")
+            return "Купе";
+        if (meta == "LIMUSINE")
+            return "Лимузин";
+        return meta;
+    }
+
 
     render() {
         if (this.state.isLoding)
@@ -145,31 +208,31 @@ class CarControler extends React.Component {
                         <Col>
                             <h3>Кузов:</h3>
                             {this.state.carObj.typeBodyCar.map(elm => {
-                                return (elm + "; ");
+                                return (this.rusBodyCar(elm) + "; ");
                             })}
                         </Col>
                         <Col>
                             <h3>Привод:</h3>
                             {this.state.carObj.typeDriveUnitCar.map(elm => {
-                                return (elm + "; ");
+                                return (this.rusDriveUnit(elm) + "; ");
                             })}
                         </Col>
                         <Col>
                             <h3>Двигатель:</h3>
                             {this.state.carObj.typeMotorCar.map(elm => {
-                                return (elm + "; ");
+                                return (this.rusMotor(elm) + "; ");
                             })}
                         </Col>
                         <Col>
                             <h3>Фары:</h3>
                             {this.state.carObj.typeHeadLightCar.map(elm => {
-                                return (elm + "; ");
+                                return (this.rusHedaLight(elm) + "; ");
                             })}
                         </Col>
                         <Col>
                             <h3>Мультимедиа:</h3>
                             {this.state.carObj.typeMediaCar.map(elm => {
-                                return (elm + "; ");
+                                return (this.rusMultimedia(elm) + ";\n");
                             })}
                         </Col>
 

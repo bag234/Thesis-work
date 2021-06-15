@@ -29,8 +29,81 @@ class CarsControler extends React.Component{
             isSort: false,
             isAutoRunMotor: false,
             state: "NONE",  // NORMAL, BAD, GOOD, NONE
-            isIgnoreAutoRun: true
+            isIgnoreAutoRun: true,
+            isLoding: false
         }
+    }
+
+    rusMultimedia(meta){
+        // ["AUX","BLUETHON","CD","USB","MON","GPS"]
+        if (meta == "AUX")
+            return "Aux";
+        if (meta == "CD")
+            return "CD";
+        if (meta == "BLUETHON")
+            return "Bluethon";
+        if (meta == "USB")
+            return "usb";
+        if (meta == "MON")
+            return "Монитор";
+        return meta;
+    }
+
+    rusHedaLight(meta){
+        if (meta == "LED")
+            return "Светодиодные";
+        if (meta == "FROG")
+            return "Противотуманные";
+        if (meta == "XSEON")
+            return "Ксеон";
+        return meta;
+    }
+    
+    rusMotor(meta){
+        //["PETROL","PETROLPB","PETROLM","PETROLG","DISEL","DISELG","ELECTRO"]
+        if (meta == "PETROL")
+            return "Бензин";
+        if (meta == "PETROLPB")
+            return "Бензин Пропан-бутан";
+        if (meta == "PETROLG")
+            return "Бензин Гибрид";
+        if (meta == "PETROLM")
+            return "Бензин Метан";
+        if (meta == "DISEL")
+            return "Дизель";
+        if (meta == "DISELG")
+            return "Дизель гебрид";
+        if (meta == "ELECTRO")
+            return "Электро";
+        return meta;
+    }
+
+    rusDriveUnit(meta){
+        //["BEFORE","AFTER","SWITCH","FULL"]
+        if (meta == "BEFORE")
+            return "Передний";
+        if (meta == "AFTER")
+            return "Задний";
+        if (meta == "SWITCH")
+            return "Переключаемый";
+        if (meta == "FULL")
+            return "Полный";
+        return meta;
+    }
+
+    rusBodyCar(meta){
+        // ["SUV3","SUV5","CABRIOLETE","COMP","LIMUSINE"]
+        if (meta == "SUV3")
+            return "Внедорожник 3 дв.";
+        if (meta == "SUV5")
+            return "Внедорожник 5 дв.";
+        if (meta == "CABRIOLETE")
+            return "Кабриолет";
+        if (meta == "COMP")
+            return "Купе";
+        if (meta == "LIMUSINE")
+            return "Лимузин";
+        return meta;
     }
 
     componentDidMount(){
@@ -86,6 +159,7 @@ class CarsControler extends React.Component{
                 },  
                 (err) => console.error(err)
             );
+        this.setState({isLoding: true});
     }
     
     checkedControlBodyCar(event, type) {
@@ -214,6 +288,8 @@ class CarsControler extends React.Component{
     }
 
     render(){
+        if(!this.state.isLoding)
+            return(<h1>loding....  wait</h1>)
         return(
             <div id="cars-controler">
                 <div id="cars-filter" className="mb-4">
@@ -228,7 +304,7 @@ class CarsControler extends React.Component{
                                             type="checkbox"
                                             id={"Cars.TypeBody." + elm}
                                             className="mb-2"
-                                            label={elm}
+                                            label={this.rusBodyCar(elm)}
                                             onClick={(e) => this.checkedControlBodyCar(e, elm)}
                                         /></Col>);
                                     })
@@ -243,7 +319,7 @@ class CarsControler extends React.Component{
                                             type="checkbox"
                                             id={"Cars.TypeDriveUnit." + elm}
                                             className="mb-2"
-                                            label={elm}
+                                            label={this.rusDriveUnit(elm)}
                                             onClick={(e) => this.checkedControlDriveUnitCar(e, elm)}
                                         /></Col>);
                                     })
@@ -258,7 +334,7 @@ class CarsControler extends React.Component{
                                             type="checkbox"
                                             id={"Cars.TypeHeadLight." + elm}
                                             className="mb-2"
-                                            label={elm}
+                                            label={this.rusHedaLight(elm)}
                                             onClick={(e) => this.checkedControlHeadLightCar(e, elm)}
                                         /></Col>);
                                     })
@@ -273,14 +349,14 @@ class CarsControler extends React.Component{
                                             type="checkbox"
                                             id={"Cars.TypeMedia." + elm}
                                             className="mb-2"
-                                            label={elm}
+                                            label={this.rusMultimedia(elm)}
                                             onClick={(e) => this.checkedControlMediaCar(e, elm)}
                                         /></Col>);
                                     })
                                 }
                         </Row>
                         <Row md={4} className="ml-1">
-                            <Form.Label>мотор:</Form.Label>
+                            <Form.Label>Mотор:</Form.Label>
                                 {
                                     this.state.TypeMotorCar.map((elm) => {
                                         return (<Col md="auto"><Form.Check
@@ -288,7 +364,7 @@ class CarsControler extends React.Component{
                                             type="checkbox"
                                             id={"Cars.TypeMotor." + elm}
                                             className="mb-2"
-                                            label={elm}
+                                            label={this.rusMotor(elm)}
                                             onClick={(e) => this.checkedControlMotorCar(e, elm)}
                                         /></Col>);
                                     })

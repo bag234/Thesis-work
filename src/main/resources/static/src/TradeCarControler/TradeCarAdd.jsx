@@ -48,6 +48,79 @@ class TradeCarAdd extends React.Component {
         // this.componentMoment();
     }
 
+    rusMultimedia(meta){
+        // ["AUX","BLUETHON","CD","USB","MON","GPS"]
+        if (meta == "AUX")
+            return "Aux";
+        if (meta == "CD")
+            return "CD";
+        if (meta == "BLUETHON")
+            return "Bluethon";
+        if (meta == "USB")
+            return "usb";
+        if (meta == "MON")
+            return "Монитор";
+        return meta;
+    }
+
+    rusHedaLight(meta){
+        if (meta == "LED")
+            return "Светодиодные";
+        if (meta == "FROG")
+            return "Противотуманные";
+        if (meta == "XSEON")
+            return "Ксеон";
+        return meta;
+    }
+    
+    rusMotor(meta){
+        //["PETROL","PETROLPB","PETROLM","PETROLG","DISEL","DISELG","ELECTRO"]
+        if (meta == "PETROL")
+            return "Бензин";
+        if (meta == "PETROLPB")
+            return "Бензин Пропан-бутан";
+        if (meta == "PETROLG")
+            return "Бензин Гибрид";
+        if (meta == "PETROLM")
+            return "Бензин Метан";
+        if (meta == "DISEL")
+            return "Дизель";
+        if (meta == "DISELG")
+            return "Дизель гебрид";
+        if (meta == "ELECTRO")
+            return "Электро";
+        return meta;
+    }
+
+    rusDriveUnit(meta){
+        //["BEFORE","AFTER","SWITCH","FULL"]
+        if (meta == "BEFORE")
+            return "Передний";
+        if (meta == "AFTER")
+            return "Задний";
+        if (meta == "SWITCH")
+            return "Переключаемый";
+        if (meta == "FULL")
+            return "Полный";
+        return meta;
+    }
+
+    rusBodyCar(meta){
+        // ["SUV3","SUV5","CABRIOLETE","COMP","LIMUSINE"]
+        if (meta == "SUV3")
+            return "Внедорожник 3 дв.";
+        if (meta == "SUV5")
+            return "Внедорожник 5 дв.";
+        if (meta == "CABRIOLETE")
+            return "Кабриолет";
+        if (meta == "COMP")
+            return "Купе";
+        if (meta == "LIMUSINE")
+            return "Лимузин";
+        return meta;
+    }
+
+
     componentDidMount() {
         fetch("/api/get/TypeBody").then(res => res.json())
             .then((resp) => {
@@ -338,7 +411,7 @@ class TradeCarAdd extends React.Component {
                                         type="checkbox"
                                         id={"TradeCar.TypeBody." + elm}
                                         className="mb-2"
-                                        label={elm}
+                                        label={this.rusBodyCar(elm)}
                                         onClick={(e) => this.checkedControlBodyCar(e, elm)}
                                     /></Col>);
                                 })
@@ -355,7 +428,7 @@ class TradeCarAdd extends React.Component {
                                         type="checkbox"
                                         id={"TradeCar.TypeDriveUnit." + elm}
                                         className="mb-2"
-                                        label={elm}
+                                        label={this.rusDriveUnit(elm)}
                                         onClick={(e) => this.checkedControlDriveUnitCar(e, elm)}
                                     /> </Col>);
                                 })
@@ -371,7 +444,7 @@ class TradeCarAdd extends React.Component {
                                         type="checkbox"
                                         id={"TradeCar.TypeHeTYPE3adLight." + elm}
                                         className="mb-2"
-                                        label={elm}
+                                        label={this.rusHedaLight(elm)}
                                         onClick={(e) => this.checkedControlHeadLightCar(e, elm)}
                                     /></Col>);
                                 })
@@ -387,7 +460,7 @@ class TradeCarAdd extends React.Component {
                                         type="checkbox"
                                         id={"TradeCar.TypeMedia." + elm}
                                         className="mb-2"
-                                        label={elm}
+                                        label={this.rusMultimedia(elm)}
                                         onClick={(e) => this.checkedControlMediaCar(e, elm)}
                                     /></Col>);
                                 })
@@ -403,7 +476,7 @@ class TradeCarAdd extends React.Component {
                                         type="checkbox"
                                         id={"TradeCar.TypeMotor." + elm}
                                         className="mb-2"
-                                        label={elm}
+                                        label={this.rusMotor(elm)}
                                         onClick={(e) => this.checkedControlMotorCar(e, elm)}
                                     /></Col>);
                                 })
